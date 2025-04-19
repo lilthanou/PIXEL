@@ -9,6 +9,10 @@
     format("truetype");
 }
 
+* {
+    overflow-x: none;
+}
+
 :root {
   --background-color: #ff5424;
   --text-color: #f4f1f1;
@@ -22,25 +26,29 @@ body {
   font-family: "Outfit", sans-serif;
   font-weight: 200;
   color: var(--text-color);
+  height: 500vh;
 }
 
 @media screen and (max-width: 600px) {
   body {
-    background-color: #ff5424;
+    background-color: var(--background-color);
   }
 
-  h1 {
-    font-size: 6dvh;
-    margin: 10dvh 0 0 10dvw;
-  }
+  /* Landing-page */
 
-  section {
-    position: absolute;
+  .landing {
+    background-color: var(--background-color);
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: absolute;
+  }
+
+  h1 {
+    font-size: 6dvh;
+    margin: 10dvh 0 0 10dvw;
   }
 
   .landing-text {
@@ -90,4 +98,22 @@ body {
     top: 190dvw;
     left: 90dvw;
   }
+
+    /* Second-page */
+
+    .second-pixel{
+        width: 30dvw;
+        height: 30dvw;
+        background-color: var(--text-color);
+        position: fixed;
+        top: 100dvw;
+        left: 30.5dvw;
+        padding: 2dvw;
+    }
+    .second-pixel-text{
+        position: absolute;
+        font-size: 3.5dvw;
+        text-align: left;
+        bottom: 0;
+    }
 }
