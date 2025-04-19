@@ -1,24 +1,93 @@
-body{
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    height: 100dvh;
-    width: 100dvw;
+@font-face {
+  font-family: "Outfit";
+  src: url(font/Outfit-Black.ttf) format("truetype") url(font/Outfit-Bold.ttf)
+    format("truetype") url(font/Outfit-ExtraBold.ttf) format("truetype")
+    url(font/Outfit-ExtraLight.ttf) format("truetype")
+    url(font/Outfit-Light.ttf) format("truetype") url(font/Outfit-Medium.ttf)
+    format("truetype") url(font/Outfit-Regular.ttf) format("truetype")
+    url(font/Outfit-SemiBold.ttf) format("truetype") url(font/Outfit-Thin.ttf)
+    format("truetype");
 }
 
-.container{
-    background-color: blue;
-    height: 100%;
-    width: 100%;
-    z-index: 0;
+:root {
+  --background-color: #ff5424;
+  --text-color: #f4f1f1;
 }
 
-.text{
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+  font-family: "Outfit", sans-serif;
+  font-weight: 200;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #ff5424;
+  }
+
+  h1 {
+    font-size: 6dvh;
+    margin: 10dvh 0 0 10dvw;
+  }
+
+  section {
     position: absolute;
-    z-index: 2;
-    color: white;
-    height: 100dvh;
-    width: 100dvw;
-    text-align: center;
-    zoom: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .landing-text {
+    position: absolute;
+    width: 60dvw;
+    height: 30dvw;
+    font-size: 3.5dvw;
+    top: 160dvw;
+    left: 30dvw;
+    padding: 2dvw;
+    text-align: left;
+  }
+
+  .landing-pixel {
+    position: absolute;
+    width: 30dvw;
+    height: 30dvw;
+    background-color: var(--text-color);
+    border: var(--text-color) solid 0.05dvw;
+  }
+
+  .one {
+    top: 70dvw;
+    left: 0;
+  }
+  .two {
+    top: 100dvw;
+    left: 30dvw;
+  }
+  .three {
+    top: 100dvw;
+    left: 90dvw;
+  }
+  .four {
+    top: 130dvw;
+    left: 30dvw;
+  }
+  .five {
+    top: 130dvw;
+    left: 60dvw;
+  }
+  .six {
+    top: 160dvw;
+    left: 0;
+  }
+  .seven {
+    top: 190dvw;
+    left: 90dvw;
+  }
 }

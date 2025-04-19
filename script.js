@@ -1,13 +1,12 @@
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".gros-carre", {
-    scale: 20,
-    scrollTrigger: {
-        trigger: ".box",
-        start: "top",
-        end: "bottom",
-        scrub: 1,
-        pin: true,
-        markers: true,
-    },
-});
+for (let i = 0; i < sections.length+1; i++) {
+    gsap.to(sections[i], {
+        scrollTrigger: {
+            trigger: sections[i],
+            start: "top top",
+            endTrigger : "section" + (i+1),
+            scrub : true,
+        },
+        backgroundColor : colors[i+1],
+})};
