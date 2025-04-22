@@ -107,13 +107,21 @@ body {
         background-color: var(--text-color);
         position: fixed;
         top: 100dvw;
-        left: 30.5dvw;
-        padding: 2dvw;
+        left: 30.2dvw;
     }
     .second-pixel-text{
         position: absolute;
         font-size: 3.5dvw;
         text-align: left;
         bottom: 0;
+    }
+
+    .third-pixel{
+        width: 30dvw;
+        height: 30dvw;
+        background-color: var(--text-color);
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 }

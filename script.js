@@ -8,14 +8,6 @@ gsap.to(".second-pixel", {
     start: "top",
     end: "10% top",
     scrub: true,
-    onLeave : () => {
-        document.querySelector(".second-pixel").style.width = "60dvw";
-        document.querySelector(".second-pixel").style.height = "60dvw";
-    },
-    onLeaveBack : () => {
-        document.querySelector(".second-pixel").style.width = "30dvw";
-        document.querySelector(".second-pixel").style.height = "30dvw";
-    },
   }
 });
 
@@ -30,15 +22,29 @@ gsap.to(".landing", {
     }
 });
 
-gsap.to(".second-pixel", {
-    scale: 10,
-    xPercent: 7,
-    color: "#f4f1f1",
-    scrollTrigger: {
-      trigger: ".body",
-      start: "10% top",
-      end: "30% top",
-      markers: true,
-      scrub: true,
+gsap.to(".third-pixel", {
+    scale: 4,
+  color : "#ff5424",
+  scrollTrigger: {
+    trigger: ".body",
+    start: "15% top",
+    end: "40% top",
+    scrub: true,
+    onLeave : () => {
+      gsap.to(".second-pixel", {
+        alpha: 0,
+      });
+      gsap.to(".landing", {
+        display: "none",
+      });
+    },
+    onEnterBack : () => {
+      gsap.to(".second-pixel", {
+        alpha: 1,
+      });
+      gsap.to(".landing", {
+        display: "block",
+      });
     }
+  }
 });
