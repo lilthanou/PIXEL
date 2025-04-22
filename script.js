@@ -2,7 +2,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".second-pixel", {
     scale: 2,
-  color : "#ff5424",
+    x : "9%",
+    color : "#ff5424",
   scrollTrigger: {
     trigger: ".body",
     start: "top",
@@ -24,7 +25,7 @@ gsap.to(".landing", {
 
 gsap.to(".third-pixel", {
     scale: 4,
-  color : "#ff5424",
+    color : "#ff5424",
   scrollTrigger: {
     trigger: ".body",
     start: "15% top",
@@ -33,6 +34,11 @@ gsap.to(".third-pixel", {
     onLeave : () => {
       gsap.to(".second-pixel", {
         alpha: 0,
+        onLeave : () => {
+          gsap.to(".second-pixel", {
+            display: "none",
+          });
+        },
       });
       gsap.to(".landing", {
         display: "none",
@@ -41,10 +47,33 @@ gsap.to(".third-pixel", {
     onEnterBack : () => {
       gsap.to(".second-pixel", {
         alpha: 1,
+        display: "block",
       });
       gsap.to(".landing", {
         display: "block",
       });
-    }
+    },
+    onEnter : () => {
+      gsap.to(".second-pixel-text", {
+        alpha: 0,
+        onComplete: () => {
+          document.querySelector(".second-pixel-text").innerHTML = "Everything you see ... starts here.";
+          gsap.to(".second-pixel-text", {
+            alpha: 1,
+          });
+        },
+      });
+    },
+    onLeaveBack : () => {
+      gsap.to(".second-pixel-text", {
+        alpha: 0,
+        onComplete: () => {
+          document.querySelector(".second-pixel-text").innerHTML = "The world is made of pixels.";
+          gsap.to(".second-pixel-text", {
+            alpha: 1,
+          });
+        },
+      });
+    },
   }
 });
