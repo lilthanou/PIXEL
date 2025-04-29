@@ -7,38 +7,55 @@
     <link rel="stylesheet" href="style.css" class="css" />
   </head>
   <body class="body">
-
-    <div class="button-menu" onclick="openMenu()"></div>
+    <div class="button-menu" onclick="openMenu()">
+      <img src="lib/cross.svg" />
+    </div>
 
     <nav>
-      <a class="menu-element">Chapter 1</a>
-      <a class="menu-element">Chapter 2</a>
-      <a class="menu-element">Chapter 3</a>
-      <a class="menu-element">Chapter 4</a>
-      <a class="menu-element">Chapter 5</a>
+      <a class="menu-element">
+        <div>00</div>
+        <h3>The Story</h3>
+      </a>
+      <a class="menu-element">
+        <div>01</div>
+        <h3>From wave to pixels</h3>
+      </a>
+      <a class="menu-element">
+        <div>02</div>
+        <h3>The illusion of squares</h3>
+      </a>
+      <a class="menu-element">
+        <div>03</div>
+        <h3>Pixels take over the world</h3>
+      </a>
+      <a class="menu-element">
+        <div>04</div>
+        <h3>End of game</h3>
+      </a>
     </nav>
 
     <section class="landing">
-
       <h1>pixel, <br />a biography</h1>
 
-        <p class="landing-text">
-            I have billions of pixels in my cellphone, and you probably do too. But
-            what is a pixel? Why do so many people think that pixels are little
-            abutting squares?
-        </p>
+      <p class="landing-text">
+        I have billions of pixels in my cellphone, and you probably do too. But
+        what is a pixel? Why do so many people think that pixels are little
+        abutting squares?
+      </p>
 
-        <div class="landing-pixel one"></div>
-        <div class="landing-pixel two"></div>
-        <div class="landing-pixel three"></div>
-        <div class="landing-pixel four"></div>
-        <div class="landing-pixel five"></div>
-        <div class="landing-pixel six"></div>
-        <div class="landing-pixel seven"></div>
+      <div class="landing-pixel one"></div>
+      <div class="landing-pixel two"></div>
+      <div class="landing-pixel three"></div>
+      <div class="landing-pixel four"></div>
+      <div class="landing-pixel five"></div>
+      <div class="landing-pixel six"></div>
+      <div class="landing-pixel seven"></div>
     </section>
-        
-    <div class="second-pixel"><div class="third-pixel"></div><p class="second-pixel-text">The world is made of pixels.</p></div>
 
+    <div class="second-pixel">
+      <div class="third-pixel"></div>
+      <p class="second-pixel-text">The world is made of pixels.</p>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>

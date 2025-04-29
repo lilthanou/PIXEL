@@ -11,6 +11,7 @@
 
 * {
     overflow-x: none;
+    font-family: "Outfit", sans-serif;
 }
 
 :root {
@@ -37,38 +38,59 @@ body {
   height: 7dvw;
   background-color: var(--text-color);
   z-index: 100;
+  transition: all 0.4s;
+}
+
+.button-menu img{
+  width: 7dvw;
+  height: 7dvw;
+  transition: all 0.4s;
 }
 
 nav {
   position: fixed;
   top: 0;
-  left: -100dvw;
+  left: -200dvw;
   width: 100dvw;
-  height: fit-content;
+  height: 60dvh;
   background-color: var(--text-color);
   z-index: 9;
-  display: none;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  font-size: 10dvw;
-  padding: 10dvh 0 10dvh 0;
+  align-self: stretch;
   display: flex;
+  padding: 40dvh 0 5dvh 0;
 }
 
 .menu-element{
-  width: 100dvw;
-  height: 17dvh;
-  color: var(--background-color);
-  border-top: 0.3dvh solid var(--background-color);
   display: flex;
-  justify-content: center;
+  flex-direction: line;
+  background-color: var(--text-color);
+  width: 100dvw;
+  height: fit-content;
   align-items: center;
+  padding-left: 10dvh;
+  gap : 4dvh;
+  color: var(--background-color);
+  border-top: 1px solid var(--background-color);
+  padding-top: 1.6dvh;
+  padding-bottom: 1.6dvh;
 }
 
 .menu-element:active{
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.menu-element>div {
+  font-size: 4dvw;
+}
+
+h3{
+  font-weight : 400;
+  font-size: 4dvh;
+  width: 60dvw;
+  margin: 0dvw;
 }
 
 section {

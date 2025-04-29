@@ -3,11 +3,30 @@ let menuOpen = false;
 
 function openMenu() {
   if (menuOpen) {
-    document.querySelector("nav").style.left = "-100dvw";
+    document.querySelector("nav").style.left = "-200dvw";
     document.querySelector(".button-menu").style.backgroundColor = "var(--text-color)";
+    document.querySelector(".button-menu").style.width = "7dvw";
+    document.querySelector(".button-menu img").style.width = "7dvw";
+    document.querySelector(".button-menu").style.height = "7dvw";
+    document.querySelector(".button-menu img").style.height = "7dvw";
+    gsap.to(".button-menu", {
+      x: "0",
+      y: "0",
+      duration: 0,
+    });
   } else {
     document.querySelector("nav").style.left = "0";
     document.querySelector(".button-menu").style.backgroundColor = "var(--background-color)";
+    document.querySelector(".button-menu").style.width = "63dvw";
+    document.querySelector(".button-menu img").style.width = "63dvw";
+    document.querySelector(".button-menu").style.height = "63dvw";
+    document.querySelector(".button-menu img").style.height = "63dvw";
+    gsap.to(".button-menu", {
+      x: "20%",
+      y: "10%",
+      duration: 0,
+    });
+
   }
   menuOpen = !menuOpen;
 }
