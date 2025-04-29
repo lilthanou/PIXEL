@@ -29,6 +29,53 @@ body {
   height: 500vh;
 }
 
+.button-menu{
+  position: fixed;
+  top: 5dvw;
+  left: 5dvw;
+  width: 7dvw;
+  height: 7dvw;
+  background-color: var(--text-color);
+  z-index: 10;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: -100dvw;
+  width: 100dvw;
+  height: fit-content;
+  background-color: var(--background-color);
+  z-index: 9;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10dvw;
+  padding: 10dvh 0 10dvh 0;
+  display: flex;
+}
+
+.menu-element{
+  width: 100dvw;
+  height: 17dvh;
+  border-top: 0.5dvh solid var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-element:active{
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+section {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
 @media screen and (max-width: 600px) {
   body {
     background-color: var(--background-color);
