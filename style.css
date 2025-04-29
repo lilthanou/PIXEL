@@ -36,7 +36,7 @@ body {
   width: 7dvw;
   height: 7dvw;
   background-color: var(--text-color);
-  z-index: 10;
+  z-index: 100;
 }
 
 nav {
@@ -45,7 +45,7 @@ nav {
   left: -100dvw;
   width: 100dvw;
   height: fit-content;
-  background-color: var(--background-color);
+  background-color: var(--text-color);
   z-index: 9;
   display: none;
   flex-direction: column;
@@ -59,15 +59,16 @@ nav {
 .menu-element{
   width: 100dvw;
   height: 17dvh;
-  border-top: 0.5dvh solid var(--text-color);
+  color: var(--background-color);
+  border-top: 0.3dvh solid var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .menu-element:active{
-  background-color: var(--text-color);
-  color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 section {

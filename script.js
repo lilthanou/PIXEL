@@ -4,8 +4,10 @@ let menuOpen = false;
 function openMenu() {
   if (menuOpen) {
     document.querySelector("nav").style.left = "-100dvw";
+    document.querySelector(".button-menu").style.backgroundColor = "var(--text-color)";
   } else {
     document.querySelector("nav").style.left = "0";
+    document.querySelector(".button-menu").style.backgroundColor = "var(--background-color)";
   }
   menuOpen = !menuOpen;
 }
