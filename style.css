@@ -27,7 +27,7 @@ body {
   font-family: "Outfit", sans-serif;
   font-weight: 200;
   color: var(--text-color);
-  height: 500vh;
+  height: 500dvh;
 }
 
 .button-menu{
@@ -95,8 +95,9 @@ h3{
 
 section {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
+  display: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -110,10 +111,11 @@ section {
     background-color: var(--background-color);
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     overflow: hidden;
     position: absolute;
+    display: flex;
   }
 
   h1 {
@@ -194,5 +196,38 @@ section {
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .second-section{
+      display: none;
+      flex-direction: column;
+      margin: 7dvh 5dvw 0 5dvw;
+      width: 90dvw;
+    }
+
+    section>h3{
+      font-size: 2dvh;
+      margin: 2dvw 0;
+    }
+    section>h2{
+      font-size: 4dvh;
+      margin: 4dvw 0;
+    }
+
+    section>p {
+      font-size: 25px;
+      margin-top: 15dvh;
+    }
+
+    .section-line{
+      width: 90dvw;
+      height: 0.1dvh;
+      background-color: var(--text-color);
+      margin: 2dvh 0 2dvh 0;
+    }
+    .pixel-invader{
+      width: 60dvw;
+      height: 60dvw;
+      margin: 10dvh auto 0 auto;
     }
 }

@@ -74,6 +74,9 @@ gsap.to(".third-pixel", {
       gsap.to(".landing", {
         display: "none",
       });
+      gsap.to(".second-section", {
+        display: "flex",
+      });
     },
     onEnterBack : () => {
       gsap.to(".second-pixel", {
@@ -82,6 +85,9 @@ gsap.to(".third-pixel", {
       });
       gsap.to(".landing", {
         display: "block",
+      });
+      gsap.to(".second-section", {
+        display: "none",
       });
     },
     onEnter : () => {
