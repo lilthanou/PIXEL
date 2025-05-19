@@ -207,16 +207,16 @@ section {
 
     section>h3{
       font-size: 2dvh;
-      margin: 2dvw 0;
+      margin: 4dvw 0 2dvw 0;
     }
     section>h2{
       font-size: 4dvh;
-      margin: 4dvw 0;
+      margin: 1dvw 0 0 0;
     }
 
     section>p {
       font-size: 25px;
-      margin-top: 15dvh;
+      margin-top: 10dvh;
     }
 
     .section-line{
