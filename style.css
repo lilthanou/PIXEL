@@ -96,7 +96,7 @@ h3 {
 }
 
 section {
-  height: 100dvh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 7dvh 5dvw 0 5dvw;
