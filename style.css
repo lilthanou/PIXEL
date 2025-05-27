@@ -10,8 +10,8 @@
 }
 
 * {
-    overflow-x: none;
-    font-family: "Outfit", sans-serif;
+  overflow-x: none;
+  font-family: "Outfit", sans-serif;
 }
 
 :root {
@@ -27,10 +27,12 @@ body {
   font-family: "Outfit", sans-serif;
   font-weight: 200;
   color: var(--text-color);
-  height: 500dvh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 
-.button-menu{
+.button-menu {
   position: fixed;
   top: 5dvw;
   left: 5dvw;
@@ -41,7 +43,7 @@ body {
   transition: all 0.4s;
 }
 
-.button-menu img{
+.button-menu img {
   width: 7dvw;
   height: 7dvw;
   transition: all 0.4s;
@@ -62,7 +64,7 @@ nav {
   padding: 40dvh 0 5dvh 0;
 }
 
-.menu-element{
+.menu-element {
   display: flex;
   flex-direction: line;
   background-color: var(--text-color);
@@ -70,164 +72,107 @@ nav {
   height: fit-content;
   align-items: center;
   padding-left: 10dvh;
-  gap : 4dvh;
+  gap: 4dvh;
   color: var(--background-color);
   border-top: 1px solid var(--background-color);
   padding-top: 1.6dvh;
   padding-bottom: 1.6dvh;
 }
 
-.menu-element:active{
+.menu-element:active {
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-.menu-element>div {
+.menu-element > div {
   font-size: 4dvw;
 }
 
-h3{
-  font-weight : 400;
+h3 {
+  font-weight: 400;
   font-size: 4dvh;
   width: 60dvw;
   margin: 0dvw;
 }
 
 section {
-  position: fixed;
-  width: 100dvw;
   height: 100dvh;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  margin: 7dvh 5dvw 0 5dvw;
+  width: 90dvw;
+  overflow: hidden;
 }
 
-@media screen and (max-width: 600px) {
-  body {
-    background-color: var(--background-color);
-  }
+.landing {
+  gap: 5dvh;
+  padding-top: 5dvh;
+  width: 100dvw;
+  margin: 0;
+}
 
-  /* Landing-page */
+h1 {
+  font-size: 6dvh;
+  margin: 10dvh 0 0 10dvw;
+}
 
-  .landing {
-    background-color: var(--background-color);
-    top: 0;
-    left: 0;
-    width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
-    position: absolute;
-    display: flex;
-  }
+.landing-text{
+  position: absolute;
+  top: 62%;
+  left: 31%;
+  font-size: 1.5dvh;
+  width: 55dvw;
+}
 
-  h1 {
-    font-size: 6dvh;
-    margin: 10dvh 0 0 10dvw;
-  }
+.landing-pixel{
+  position: fixed;
+  top: 47%;
+  left: 30.5%;
+  width: 13dvh;
+  height: 13dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .landing-text {
-    position: absolute;
-    width: 60dvw;
-    height: 30dvw;
-    font-size: 3.5dvw;
-    top: 160dvw;
-    left: 30dvw;
-    padding: 2dvw;
-    text-align: left;
-  }
+.transition-pixel {
+  background-color: var(--text-color);
+  width: 13dvh;
+  height: 13dvh;
+  position: absolute;
+  z-index: 0;
+}
 
-  .landing-pixel {
-    position: absolute;
-    width: 30dvw;
-    height: 30dvw;
-    background-color: var(--text-color);
-    border: var(--text-color) solid 0.05dvw;
-  }
+.pixel-text{
+  font-size: 1.5dvh;
+  margin: 9dvh 0 0 1dvh;
+  color: var(--text-color);
+  z-index: 10;
+}
 
-  .one {
-    top: 70dvw;
-    left: 0;
-  }
-  .two {
-    top: 100dvw;
-    left: 30dvw;
-  }
-  .three {
-    top: 100dvw;
-    left: 90dvw;
-  }
-  .four {
-    top: 130dvw;
-    left: 30dvw;
-  }
-  .five {
-    top: 130dvw;
-    left: 60dvw;
-  }
-  .six {
-    top: 160dvw;
-    left: 0;
-  }
-  .seven {
-    top: 190dvw;
-    left: 90dvw;
-  }
+section > h3 {
+  font-size: 2dvh;
+  margin: 4dvw 0 2dvw 0;
+}
+section > h2 {
+  font-size: 4dvh;
+  margin: 1dvw 0 0 0;
+}
 
-    /* Second-page */
+section > p {
+  font-size: 25px;
+  margin-top: 10dvh;
+}
 
-    .second-pixel{
-        width: 30dvw;
-        height: 30dvw;
-        background-color: var(--text-color);
-        position: fixed;
-        top: 100dvw;
-        left: 30.2dvw;
-    }
-    .second-pixel-text{
-        position: absolute;
-        font-size: 3.5dvw;
-        text-align: left;
-        margin: 2dvw;
-        bottom: 0;
-    }
+.section-line {
+  width: 90dvw;
+  height: 0.1dvh;
+  background-color: var(--text-color);
+  margin: 2dvh 0 2dvh 0;
 
-    .third-pixel{
-        width: 30dvw;
-        height: 30dvw;
-        background-color: var(--text-color);
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .second-section{
-      display: none;
-      flex-direction: column;
-      margin: 7dvh 5dvw 0 5dvw;
-      width: 90dvw;
-    }
-
-    section>h3{
-      font-size: 2dvh;
-      margin: 4dvw 0 2dvw 0;
-    }
-    section>h2{
-      font-size: 4dvh;
-      margin: 1dvw 0 0 0;
-    }
-
-    section>p {
-      font-size: 25px;
-      margin-top: 10dvh;
-    }
-
-    .section-line{
-      width: 90dvw;
-      height: 0.1dvh;
-      background-color: var(--text-color);
-      margin: 2dvh 0 2dvh 0;
-    }
-    .pixel-invader{
-      width: 60dvw;
-      height: 60dvw;
-      margin: 10dvh auto 0 auto;
-    }
+}
+.pixel-invader {
+  width: 70dvw;
+  height: 70dvw;
+  margin: 0 auto 0 auto;
 }

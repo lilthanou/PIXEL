@@ -12,7 +12,10 @@
     </div>
 
     <nav>
-      <a class="menu-element" onclick="window.scrollTo(0, 0, { behavior: 'smooth' }), openMenu()">
+      <a
+        class="menu-element"
+        onclick="window.scrollTo(0, 0, { behavior: 'smooth' }), openMenu()"
+      >
         <div>00</div>
         <h3>The Story</h3>
       </a>
@@ -35,7 +38,7 @@
     </nav>
 
     <section class="landing">
-      <h1 id="landing">pixel, <br />a biography</h1>
+      <h1>pixel, <br />a biography</h1>
 
       <p class="landing-text">
         I have billions of pixels in my cellphone, and you probably do too. But
@@ -43,31 +46,101 @@
         abutting squares?
       </p>
 
-      <div class="landing-pixel one"></div>
-      <div class="landing-pixel two"></div>
-      <div class="landing-pixel three"></div>
-      <div class="landing-pixel four"></div>
-      <div class="landing-pixel five"></div>
-      <div class="landing-pixel six"></div>
-      <div class="landing-pixel seven"></div>
+      <img
+        class="landing-squares"
+        src="lib/landing-squares.svg"
+        alt="squares"
+      />
     </section>
 
-    <div class="second-pixel">
-      <div class="third-pixel"></div>
-      <p class="second-pixel-text">The world is made of pixels.</p>
+    <div class="landing-pixel">
+      <div class="transition-pixel"></div>
+      <p class="pixel-text">The world is made of pixels</p>
+
     </div>
 
     <section class="second-section">
-      <h3 class="section-menu">[1] From wave to pixels</h3>
-      <h2 class="section-sub-menu">Not what you think</h2>
-      <div class="section-line"></div>
+      <div class="section-header">
+        <h3 class="section-menu">[1] From wave to pixels</h3>
+        <h2 class="section-sub-menu">Not what you think</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p>When we hear “pixel”,<br />most of us picture this:</p>
+
+      <img
+        class="pixel-invader"
+        src="lib/space-invader.svg"
+        alt="space invader"
+      />
+
+      <p>But that image ? It's a myth.</p>
+    </section>
+
+    <section class="third-section">
+      <div class="section-header">
+        <h3 class="section-menu">[1] From wave to pixels</h3>
+        <h2 class="section-sub-menu">What is a pixel, really?</h2>
+        <div class="section-line"></div>
+      </div>
+
       <p>
-        When we hear “pixel”,<br/>most of us picture this: <br/><br/>
-        But that image ? <br/>
-        It's a myth. 
+        A pixel is a point of light. It’s where digital instructions become
+        visible, where code becomes color. Each pixel is defined by its position
+        and color value: a coordinate on the screen telling the display how to
+        shine.
       </p>
 
-      <img class="pixel-invader"src="lib/space-invader.svg" alt="space invader" />
+      <img class="" src="lib/cross.svg" alt="image" />
+
+      <p>
+        It doesn't have edges. It doesn't have a shape.It’s a signal, one that
+        triggers a tiny burst of red, green, and blue light.Like a spotlight on
+        a stage, a pixel performs a precise cue:this color, at this moment,
+        right here.
+      </p>
+    </section>
+
+    <section class="fourth-section">
+      <div class="section-header">
+        <h3 class="section-menu">[1] From wave to pixels</h3>
+        <h2 class="section-sub-menu">A brief history</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p>
+        The story of pixels begins centuries ago with Joseph Fourier during the
+        French Revolution — a pioneer who revealed how complex signals can be
+        broken into simple waves. Fast forward to the year 2000 — the turn of
+        the millennium — which marked an uncelebrated event known as the Great
+        Digital Convergence. At that moment, all old analogue media merged into
+        one digital medium.
+      </p>
+
+      <img class="" src="lib/cross.svg" alt="image" />
+
+      <p>1790</p>
+    </section>
+
+    <section class="fourth-section">
+      <div class="section-header">
+        <h3 class="section-menu">[1] From wave to pixels</h3>
+        <h2 class="section-sub-menu">A brief history</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p>
+        The story of pixels begins centuries ago with Joseph Fourier during the
+        French Revolution — a pioneer who revealed how complex signals can be
+        broken into simple waves. Fast forward to the year 2000 — the turn of
+        the millennium — which marked an uncelebrated event known as the Great
+        Digital Convergence. At that moment, all old analogue media merged into
+        one digital medium.
+      </p>
+
+      <img class="" src="lib/cross.svg" alt="image" />
+
+      <p>1790</p>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
