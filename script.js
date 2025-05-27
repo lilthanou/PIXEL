@@ -38,14 +38,14 @@ gsap.to(".landing-pixel", {
   y: "-70%",
   color: "#ff5424",
   scrollTrigger: {
-    trigger: ".body",
+    trigger: ".landing",
     start: "top",
     end: "10% top",
     scrub: true,
     onEnter: () => {
       gsap.to(".pixel-text", {
         color: "#ff5424",
-        duration: 0.5,
+        duration: 0.3,
       });
     },
     onLeave: () => {
@@ -55,10 +55,16 @@ gsap.to(".landing-pixel", {
     onEnterBack: () => {
       gsap.to(".pixel-text", {
         color: "#ff5424",
-        duration: 0.5,
+        duration: 0.3,
       });
       document.querySelector(".pixel-text").innerHTML =
         "The world is made of pixels";
+    },
+    onLeaveBack: () => {
+      gsap.to(".pixel-text", {
+        color: "#f4f1f1",
+        duration: 0.3,
+      });
     },
   },
 });
@@ -68,10 +74,11 @@ gsap.to(".landing", {
   scrollTrigger: {
     trigger: ".landing",
     start: "top",
-    end: "bottom 50%",
+    end: "10% top",
     pin: true,
     pinSpacing: true,
     scrub: true,
+    markers: true,
   },
 });
 
@@ -85,35 +92,35 @@ gsap.to(".transition-pixel", {
     onLeave: () => {
       gsap.to(".pixel-text", {
         alpha: 0,
-        duration: 0.5,
+        duration: 0.3,
       });
       gsap.to(".transition-pixel", {
         alpha: 0,
-        duration: 0.5,
+        duration: 0.3,
       });
       gsap.to(".second-section", {
         alpha: 1,
-        duration: 0.5,
+        duration: 0.3,
       });
     },
     onEnterBack: () => {
       gsap.to(".transition-pixel", {
         alpha: 1,
-        duration: 0.5,
+        duration: 0.3,
       });
       gsap.to(".second-section", {
         alpha: 0,
-        duration: 0.5,
+        duration: 0.3,
       });
       gsap.to(".pixel-text", {
         alpha: 1,
-        duration: 0.5,
+        duration: 0.3,
       });
     },
     onEnter: () => {
       gsap.to(".second-section", {
         alpha: 0,
-        duration: 0.5,
+        duration: 0.3,
       });
     },
   },
