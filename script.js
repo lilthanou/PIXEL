@@ -78,7 +78,6 @@ gsap.to(".landing", {
     pin: true,
     pinSpacing: true,
     scrub: true,
-    markers: true,
   },
 });
 
