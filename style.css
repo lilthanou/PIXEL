@@ -14,6 +14,10 @@
   font-family: "Outfit", sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 :root {
   --background-color: #ff5424;
   --text-color: #f4f1f1;
@@ -34,26 +38,26 @@ body {
 
 .button-menu {
   position: fixed;
-  top: 5svw;
-  left: 5svw;
-  width: 7svw;
-  height: 7svw;
+  top: 5dvw;
+  left: 5dvw;
+  width: 7dvw;
+  height: 7dvw;
   background-color: var(--text-color);
   z-index: 100;
   transition: all 0.4s;
 }
 
 .button-menu img {
-  width: 7svw;
-  height: 7svw;
+  width: 7dvw;
+  height: 7dvw;
   transition: all 0.4s;
 }
 
 nav {
   position: fixed;
   top: 0;
-  left: -200svw;
-  width: 100svw;
+  left: -200dvw;
+  width: 100dvw;
   height: 60svh;
   background-color: var(--text-color);
   z-index: 9;
@@ -61,21 +65,21 @@ nav {
   align-items: center;
   align-self: stretch;
   display: flex;
-  padding: 85svw 0 5svw 0;
+  padding: 85dvw 0 5dvw 0;
 }
 
 .menu-element {
   display: flex;
   flex-direction: line;
   background-color: var(--text-color);
-  width: 100svw;
+  width: 100dvw;
   height: fit-content;
   align-items: center;
-  gap: 5svw;
+  gap: 5dvw;
   color: var(--background-color);
   border-top: 1px solid var(--background-color);
-  padding: 3svw 0;
-  padding-left: 16svw;
+  padding: 3dvw 0;
+  padding-left: 16dvw;
 }
 
 .menu-element:active {
@@ -84,48 +88,90 @@ nav {
 }
 
 .menu-element > div {
-  font-size: 4svw;
+  font-size: 4dvw;
 }
 
 h3 {
   font-weight: 400;
-  font-size: 8svw;
-  width: 60svw;
-  margin: 0svw;
+  font-size: 8dvw;
+  width: 60dvw;
+  margin: 0dvw;
 }
 
 section {
   height: 100svh;
   display: flex;
   flex-direction: column;
-  padding: 7svh 5svw 0 5svw;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding: 7svh 5dvw 0 5dvw;
   overflow: hidden;
 }
 
 h1 {
-  font-size: 13svw;
+  font-size: 13dvw;
+  margin: 15svh 0 0 5dvw;
+}
+
+.landing{
+  padding: 0;
 }
 
 .landing-squares{
   position: fixed;
-  bottom: -12svh;
   left: 0;
-  width: 99svw;
+  top: 0;
+  width: 100dvw;
   height: 100svh;
+  display: flex;
+  z-index: -1;
 }
+
+.square{
+  width: 29svw;
+  height: 29svw;
+  background-color: var(--text-color);
+  position: fixed;
+}
+
+.square:nth-child(1) {
+  margin-top: 40svh;
+  margin-left: 0svw;
+}
+
+.square:nth-child(2) {
+  margin-top: 53.3svh;
+  margin-left: 85svw;
+}
+
+.square:nth-child(3) {
+  margin-top: 66.6svh;
+  margin-left: 29svw;
+}
+.square:nth-child(4) {
+  margin-top: 66.6svh;
+  margin-left: 58svw;
+}
+.square:nth-child(5) {
+  margin-top: 79.9svh;
+  margin-left: 0svw;
+}
+.square:nth-child(6) {
+  margin-top: 93.2svh;
+  margin-left: 85svw;
+}
+
 
 .landing-text{
   position: fixed;
-  bottom: 15svh;
+  top: 72svh;
   left: 31svw;
   font-size: 3svw;
-  width: 50svw;
+  width: 58svw;
+  height: 29svw;
 }
 
 .landing-pixel{
   position: fixed;
-  bottom: 34.5svh;
+  top: 53.3svh;
   left: 29svw;
   width: 29svw;
   height: 29svw;

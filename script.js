@@ -34,7 +34,7 @@ function openMenu() {
 
 gsap.to(".landing-pixel", {
   scale: 2,
-  x: "12%",
+  x: "23%",
   y: "-70%",
   color: "#ff5424",
   scrollTrigger: {
@@ -82,11 +82,12 @@ gsap.to(".landing", {
 });
 
 gsap.to(".transition-pixel", {
-  scale: 8,
+  scale: 8.1,
+  y: "8%",
   scrollTrigger: {
     trigger: ".landing",
     start: "top",
-    end: "top -98%",
+    end: "bottom",
     scrub: true,
     onLeave: () => {
       gsap.to(".landing-pixel", {
@@ -114,6 +115,165 @@ gsap.to(".transition-pixel", {
       gsap.to(".second-section", {
         alpha: 0,
         duration: 0.3,
+      });
+    },
+  },
+});
+
+gsap.to(".second-section", {
+  scrollTrigger: {
+    trigger: ".second-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: true,
+    onLeave:() => {
+      gsap.to(".second-section", {
+        alpha: 0,
+      });
+      gsap.to(".third-section", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".second-section", {
+        alpha: 1,
+      });
+      gsap.to(".third-section", {
+        alpha: 0,
+      });
+    },
+    onEnter: () => {
+      gsap.to(".third-section", {
+        alpha: 0,
+        duration:0,
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(".third-section", {
+        alpha: 1,
+      });
+      gsap.to(".second-section", {
+        alpha: 0,
+      });
+    },
+  },
+});
+
+gsap.to(".third-section", {
+  scrollTrigger: {
+    trigger: ".third-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: true,
+    onLeave: () => {
+      gsap.to(".third-section", {
+        alpha: 0,
+      });
+      gsap.to(".fourth-section", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".third-section", {
+        alpha: 1,
+      });
+      gsap.to(".fourth-section", {
+        alpha: 0,
+      });
+    },
+    onEnter: () => {
+      gsap.to(".fourth-section", {
+        alpha: 0,
+        duration:0,
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(".fourth-section", {
+        alpha: 1,
+      });
+      gsap.to(".third-section", {
+        alpha: 0,
+      });
+    },
+  },
+});
+gsap.to(".fourth-section", {
+  scrollTrigger: {
+    trigger: ".fourth-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: true,
+    onLeave: () => {
+      gsap.to(".fourth-section", {
+        alpha: 0,
+      });
+      gsap.to(".fifth-section", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".fourth-section", {
+        alpha: 1,
+      });
+      gsap.to(".fifth-section", {
+        alpha: 0,
+      });
+    },
+    onEnter: () => {
+      gsap.to(".fifth-section", {
+        alpha: 0,
+        duration:0,
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(".fifth-section", {
+        alpha: 1,
+      });
+      gsap.to(".fourth-section", {
+        alpha: 0,
+      });
+    },
+  },
+});
+
+gsap.to(".fifth-section", {
+  scrollTrigger: {
+    trigger: ".fifth-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: true,
+    onLeave: () => {
+      gsap.to(".fifth-section", {
+        alpha: 0,
+      });
+      gsap.to(".sixth-section", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".fifth-section", {
+        alpha: 1,
+      });
+      gsap.to(".sixth-section", {
+        alpha: 0,
+      });
+    },
+    onEnter: () => {
+      gsap.to(".sixth-section", {
+        alpha: 0,
+        duration:0,
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(".sixth-section", {
+        alpha: 1,
+      });
+      gsap.to(".fifth-section", {
+        alpha: 0,
       });
     },
   },
