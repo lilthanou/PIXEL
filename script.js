@@ -83,20 +83,17 @@ gsap.to(".landing", {
 });
 
 gsap.to(".transition-pixel", {
-  scale: 6,
+  scale: 8,
   scrollTrigger: {
     trigger: ".landing",
     start: "top",
-    end: "top -95%",
+    end: "top -98%",
     scrub: true,
     onLeave: () => {
-      gsap.to(".pixel-text", {
+      gsap.to(".landing-pixel", {
         alpha: 0,
         duration: 0.3,
-      });
-      gsap.to(".transition-pixel", {
-        alpha: 0,
-        duration: 0.3,
+        display: 'none',
       });
       gsap.to(".second-section", {
         alpha: 1,
@@ -104,16 +101,13 @@ gsap.to(".transition-pixel", {
       });
     },
     onEnterBack: () => {
-      gsap.to(".transition-pixel", {
+      gsap.to(".landing-pixel", {
         alpha: 1,
         duration: 0.3,
+        display : 'flex',
       });
       gsap.to(".second-section", {
         alpha: 0,
-        duration: 0.3,
-      });
-      gsap.to(".pixel-text", {
-        alpha: 1,
         duration: 0.3,
       });
     },
