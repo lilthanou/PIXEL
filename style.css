@@ -44,13 +44,13 @@ body {
   height: 7dvw;
   background-color: var(--text-color);
   z-index: 100;
-  transition: all 0.4s;
+  transition: all 0.2s ease-in-out;
 }
 
 .button-menu img {
   width: 7dvw;
   height: 7dvw;
-  transition: all 0.4s;
+  transition: all 0.2s ease-in-out;
 }
 
 nav {
@@ -230,5 +230,10 @@ section > p {
 .pixel-invader {
   width: 70svw;
   height: 70svw;
-  margin: 0 auto 0 auto;
+  margin: 10svh auto 0 auto;
+}
+
+
+.third-section{
+  background-color: var(--text-color);
 }

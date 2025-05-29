@@ -1,11 +1,13 @@
 gsap.registerPlugin(ScrollTrigger);
 let menuOpen = false;
+let backgroundIsOrange = true;
+let buttonMenuColor = "var(--text-color)";
+let sectionText = document.querySelectorAll(".section-text");
 
 function openMenu() {
   if (menuOpen) {
     document.querySelector("nav").style.left = "-200dvw";
-    document.querySelector(".button-menu").style.backgroundColor =
-      "var(--text-color)";
+    document.querySelector(".button-menu").style.backgroundColor = buttonMenuColor;
     document.querySelector(".button-menu").style.width = "7dvw";
     document.querySelector(".button-menu img").style.width = "7dvw";
     document.querySelector(".button-menu").style.height = "7dvw";
@@ -31,6 +33,24 @@ function openMenu() {
   }
   menuOpen = !menuOpen;
 }
+function changeBackgroundColor() {
+  backgroundIsOrange = !backgroundIsOrange;
+  if (backgroundIsOrange) {
+    buttonMenuColor = "var(--text-color)";
+    document.querySelector(".button-menu").style.backgroundColor = buttonMenuColor;
+    sectionText.forEach((text) => {
+      text.style.color = "var(--text-color)";
+    });
+  } else {
+    buttonMenuColor = "var(--background-color)";
+    document.querySelector(".button-menu").style.backgroundColor = buttonMenuColor;
+    sectionText.forEach((text) => {
+      text.style.color = "var(--background-color)";
+    });
+  }
+}
+
+// First section
 
 gsap.to(".landing-pixel", {
   scale: 2,
@@ -41,7 +61,7 @@ gsap.to(".landing-pixel", {
     trigger: ".landing",
     start: "top",
     end: "10% top",
-    scrub: true,
+    scrub: 1,
     onEnter: () => {
       gsap.to(".pixel-text", {
         color: "#ff5424",
@@ -77,9 +97,11 @@ gsap.to(".landing", {
     end: "10% top",
     pin: true,
     pinSpacing: true,
-    scrub: true,
+    scrub: 1,
   },
 });
+
+// Transition Pixel Animation
 
 gsap.to(".transition-pixel", {
   scale: 8.1,
@@ -88,7 +110,7 @@ gsap.to(".transition-pixel", {
     trigger: ".landing",
     start: "top",
     end: "bottom",
-    scrub: true,
+    scrub: 1,
     onLeave: () => {
       gsap.to(".landing-pixel", {
         alpha: 0,
@@ -120,6 +142,40 @@ gsap.to(".transition-pixel", {
   },
 });
 
+// Second section
+
+gsap.to(".space-invader", {
+  scale :8,
+  y:"13svh",
+  x: "62svh",
+  scrollTrigger: {
+    trigger: ".second-section",
+    start: "bottom 60%",
+    end: "bottom",
+    scrub: 1,
+    onLeave: () => {
+      gsap.to(".space-invader", {
+        alpha: 0,
+        duration: 0.3,
+      });
+      gsap.to(".second-section", {
+        alpha: 0,
+        duration: 0.3,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".space-invader", {
+        alpha: 1,
+        duration: 0.3,
+      });
+      gsap.to(".second-section", {
+        alpha: 1,
+        duration: 0.3,
+      });
+    },
+  },
+});
+
 gsap.to(".second-section", {
   scrollTrigger: {
     trigger: ".second-section",
@@ -130,10 +186,12 @@ gsap.to(".second-section", {
     onLeave:() => {
       gsap.to(".second-section", {
         alpha: 0,
+        duration: 0,
       });
       gsap.to(".third-section", {
         alpha: 1,
       });
+      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".second-section", {
@@ -142,6 +200,7 @@ gsap.to(".second-section", {
       gsap.to(".third-section", {
         alpha: 0,
       });
+      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".third-section", {
@@ -159,6 +218,10 @@ gsap.to(".second-section", {
     },
   },
 });
+
+
+
+// Third section
 
 gsap.to(".third-section", {
   scrollTrigger: {
@@ -199,6 +262,9 @@ gsap.to(".third-section", {
     },
   },
 });
+
+// Fourth section
+
 gsap.to(".fourth-section", {
   scrollTrigger: {
     trigger: ".fourth-section",
@@ -213,6 +279,7 @@ gsap.to(".fourth-section", {
       gsap.to(".fifth-section", {
         alpha: 1,
       });
+      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".fourth-section", {
@@ -221,6 +288,7 @@ gsap.to(".fourth-section", {
       gsap.to(".fifth-section", {
         alpha: 0,
       });
+      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".fifth-section", {
@@ -238,6 +306,8 @@ gsap.to(".fourth-section", {
     },
   },
 });
+
+// Fifth section
 
 gsap.to(".fifth-section", {
   scrollTrigger: {
