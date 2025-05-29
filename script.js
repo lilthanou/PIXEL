@@ -34,8 +34,8 @@ function openMenu() {
 
 gsap.to(".landing-pixel", {
   scale: 2,
-  x: "23%",
-  y: "-70%",
+  x: "2.6svh",
+  y: "-5svh",
   color: "#ff5424",
   scrollTrigger: {
     trigger: ".landing",

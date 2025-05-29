@@ -108,7 +108,7 @@ section {
 
 h1 {
   font-size: 13dvw;
-  margin: 15svh 0 0 5dvw;
+  margin: 10svh 0 0 5dvw;
 }
 
 .landing{
@@ -126,44 +126,53 @@ h1 {
 }
 
 .square{
-  width: 29svw;
-  height: 29svw;
+  width: 14svh;
+  height: 14svh;
   background-color: var(--text-color);
   position: fixed;
 }
 
 .square:nth-child(1) {
-  margin-top: 40svh;
-  margin-left: 0svw;
+  margin-top: 35svh;
+  margin-left: 0;
 }
 
 .square:nth-child(2) {
-  margin-top: 53.3svh;
-  margin-left: 85svw;
+  margin-top: 49svh;
+  margin-left: 42svh;
 }
 
 .square:nth-child(3) {
-  margin-top: 66.6svh;
-  margin-left: 29svw;
+  margin-top: 63svh;
+  margin-left: 14svh;
 }
 .square:nth-child(4) {
-  margin-top: 66.6svh;
-  margin-left: 58svw;
+  margin-top: 63svh;
+  margin-left: 28svh;
 }
 .square:nth-child(5) {
-  margin-top: 79.9svh;
-  margin-left: 0svw;
+  margin-top: 77svh;
+  margin-left: 0;
 }
 .square:nth-child(6) {
-  margin-top: 93.2svh;
-  margin-left: 85svw;
+  margin-top: 91svh;
+  margin-left: 42svh;
 }
 
+.square:nth-child(7) {
+  margin-top: 63svh;
+  margin-left: 56svh;
+}
+
+.square:nth-child(8) {
+  margin-top: 77svh;
+  margin-left: 56svh;
+}
 
 .landing-text{
   position: fixed;
-  top: 72svh;
-  left: 31svw;
+  top: 69svh;
+  left: 16svh;
   font-size: 3svw;
   width: 58svw;
   height: 29svw;
@@ -171,10 +180,10 @@ h1 {
 
 .landing-pixel{
   position: fixed;
-  top: 53.3svh;
-  left: 29svw;
-  width: 29svw;
-  height: 29svw;
+  top: 49svh;
+  left: 14svh;
+  width: 14svh;
+  height: 14svh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,8 +191,8 @@ h1 {
 }
 
 .transition-pixel {
-  width: 13.5svw;
-  height: 13.5svw;
+  width: 14svh;
+  height: 14svh;
   position: fixed;
   z-index: 0;
   background-color: var(--text-color);
@@ -193,8 +202,8 @@ h1 {
   font-size: 2.5svw;
   color: var(--text-color);
   z-index: 10;
-  padding-top: 20svw;
-  padding-left: 2svw;
+  padding-top: 10svh;
+  padding-left: 1svh;
 }
 
 .section-title {
