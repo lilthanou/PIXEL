@@ -188,6 +188,7 @@ h1 {
   justify-content: center;
   align-items: center;
   background-color: var(--text-color);
+  transform-origin: top left;
 }
 
 .transition-pixel {
@@ -216,7 +217,7 @@ h1 {
 }
 
 section > p {
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 10svh;
 }
 
@@ -225,15 +226,23 @@ section > p {
   height: 0.1svh;
   background-color: var(--text-color);
   margin: 2svh 0 2svh 0;
-
 }
+
 .pixel-invader {
   width: 70svw;
   height: 70svw;
   margin: 10svh auto 0 auto;
 }
 
-
 .third-section{
   background-color: var(--text-color);
+}
+
+.third-section-pixel{
+  width: 20svh;
+  height: 20svh;
+  background-color: #ff5424;
+  border: #f4f1f1 solid 1px;
+  background-image: radial-gradient(circle, #ff532400 99%, #f4f1f1 100%);
+  margin: 5svh auto 0 auto;
 }
