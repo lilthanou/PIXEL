@@ -182,7 +182,7 @@ gsap.to(".space-invader", {
   scrollTrigger: {
     trigger: ".second-section",
     start: "bottom 60%",
-    end: "bottom",
+    end: "bottom -30%",
     scrub: 1,
     onLeave: () => {
       gsap.to(".space-invader", {
@@ -260,8 +260,8 @@ gsap.to(".third-section-pixel", {
   scale: 1.7,
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 90%",
-    end: "bottom 70%",
+    start: "top -10%",
+    end: "bottom 30%",
     scrub: 1,
     onLeave: () => {
       document.querySelector(".third-section-pixel").style.backgroundImage =
@@ -278,17 +278,18 @@ gsap.to(".third-section-pixel", {
   y: "10svh",
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 75%",
-    end: "bottom 60%",
+    start: "bottom 30%",
+    end: "bottom",
     scrub: 1,
   },
 });
 
+// Third section text
 gsap.to(".third-section-pixel", {
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 70%",
-    end: "bottom 70%",
+    start: "bottom 30%",
+    end: "bottom 30%",
     scrub: 1,
     onEnter: () => {
       gsap.to(".third-section-text", {
@@ -317,42 +318,13 @@ gsap.to(".third-section-pixel", {
   },
 });
 
-// Third section pixel color change to red
-gsap.to(".third-section-pixel", {
-  backgroundColor: "#FF0000",
-  scrollTrigger: {
-    trigger: ".third-section",
-    start: "bottom 60%",
-    end: "bottom 50%",
-    scrub: 1,
-    onLeave: () => {
-      document.querySelector(".third-section-pixel").style.backgroundColor =
-        "#FF0000";
-    },
-  },
-});
-
-// Third section pixel color change to green
-gsap.to(".third-section-pixel", {
-  backgroundColor: "#00FF00",
-  scrollTrigger: {
-    trigger: ".third-section",
-    start: "bottom 50%",
-    end: "bottom 40%",
-    scrub: 1,    onEnter: () => {
-      document.querySelector(".third-section-pixel").style.backgroundColor =
-        "#FF0000";
-    }
-  },
-});
-
-// Third section pixel color change to blue
+// Third section pixel color change to blue and text
 gsap.to(".third-section-pixel", {
   backgroundColor: "#0000FF",
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 40%",
-    end: "bottom 30%",
+    start: "bottom 20%",
+    end: "bottom",
     scrub: 1,
     onLeave: () => {
       document.querySelector(".third-section-pixel").style.backgroundColor =
@@ -360,6 +332,30 @@ gsap.to(".third-section-pixel", {
       console.log(
         document.querySelector(".third-section-pixel").style.backgroundColor
       );
+    },
+    onEnter: () => {
+      gsap.to(".third-section-text", {
+        text: {
+          delimiter: "",
+          value: "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/>this color, at this moment, right here.",
+          preserveSpaces: true,
+        },
+      }),
+        gsap.to(".third-section-text-delete", {
+          alpha: 0,
+        });
+    },
+    onEnterBack: () => {
+      gsap.to(".third-section-text", {
+        text: {
+          delimiter: "",
+          value: "A pixel is a <b>point of light.</b>",
+          preserveSpaces: true,
+        },
+      }),
+        gsap.to(".third-section-text-delete", {
+          alpha: 1,
+        });
     },
   },
 });

@@ -103,7 +103,6 @@ section {
   display: flex;
   flex-direction: column;
   padding: 7svh 5dvw 0 5dvw;
-  overflow: hidden;
 }
 
 h1 {
@@ -245,4 +244,42 @@ section > p {
   border: #f4f1f1 solid 1px;
   background-image: radial-gradient(circle, #ff532400 99%, #f4f1f1 100%);
   margin: 5svh auto 0 auto;
+}
+
+.fourth-section{
+  background-color: var(--text-color);
+}
+
+.fourth-section-date{
+  font-size: 40svw;
+  width: fit-content;
+  height: 20dvh;
+  position: fixed;
+  bottom: 0svh;
+  left: auto;
+}
+
+.fifth-section > .section-text{
+  margin-top: 5svh;
+}
+
+.fifth-section-container{
+  height: 40svh;
+  width: 40svh;
+  margin: 5svh auto 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: line;
+  flex-wrap: wrap;
+  row-gap: 2svh;
+}
+
+.fifth-section-box{
+  width: 11svh;
+  height: 11svh;
+  background-color: #f4f1f110;
+  border: var(--text-color) solid 1px;
+  border-radius: 5%;
+  background-image: radial-gradient(circle, #ff532400 99%, #f4f1f1 100%);
 }
