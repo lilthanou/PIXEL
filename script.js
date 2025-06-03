@@ -1,5 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, TextPlugin);
 
 let menuOpen = false;
 let backgroundIsOrange = true;
@@ -8,6 +7,7 @@ let sectionTexts = document.querySelectorAll(".section-text");
 let sectionHeaders = document.querySelectorAll(".section-header");
 let sectionLines = document.querySelectorAll(".section-line");
 let thirdSectionTexts = document.querySelectorAll(".third-section-text-delete");
+let sectionSixthContainer = gsap.utils.toArray(".sixth-section-element");
 
 function openMenu() {
   if (menuOpen) {
@@ -75,8 +75,6 @@ function changeBackgroundColor() {
 
 gsap.to(".landing-pixel", {
   scale: 2,
-  x: "-25%",
-  y: "-24%",
   color: "#ff5424",
   scrollTrigger: {
     trigger: ".landing",
@@ -177,18 +175,18 @@ gsap.to(".transition-pixel", {
 
 gsap.to(".space-invader", {
   scale: 8,
-  y: "13svh",
-  x: "62svh",
   scrollTrigger: {
     trigger: ".second-section",
     start: "bottom 60%",
     end: "bottom -30%",
     scrub: 1,
-    onLeave: () => {
-      gsap.to(".space-invader", {
+    onEnter: () => {
+      gsap.to(".fourth-section", {
         alpha: 0,
         duration: 0.3,
       });
+    },
+    onLeave: () => {
       gsap.to(".second-section", {
         alpha: 0,
         duration: 0.3,
@@ -204,6 +202,26 @@ gsap.to(".space-invader", {
         duration: 0.3,
       });
     },
+  },
+});
+
+gsap.to(".second-section-header", {
+  alpha : 0,
+  scrollTrigger: {
+    trigger: ".second-section",
+    start: "bottom 60%",
+    end: "bottom",
+    scrub: true,
+  },
+});
+
+gsap.to(".second-section > p", {
+  alpha : 0,
+  scrollTrigger: {
+    trigger: ".second-section",
+    start: "bottom 60%",
+    end: "bottom",
+    scrub: true,
   },
 });
 
@@ -329,15 +347,13 @@ gsap.to(".third-section-pixel", {
     onLeave: () => {
       document.querySelector(".third-section-pixel").style.backgroundColor =
         "#0000FF";
-      console.log(
-        document.querySelector(".third-section-pixel").style.backgroundColor
-      );
     },
     onEnter: () => {
       gsap.to(".third-section-text", {
         text: {
           delimiter: "",
-          value: "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/>this color, at this moment, right here.",
+          value:
+            "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/>this color, at this moment, right here.",
           preserveSpaces: true,
         },
       }),
@@ -402,6 +418,16 @@ gsap.to(".third-section", {
 
 // Fourth section
 
+gsap.to(".fourth-section-date", {
+  scale: 20,
+  scrollTrigger: {
+    trigger: ".fourth-section",
+    start: "bottom 80%",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
 gsap.to(".fourth-section", {
   scrollTrigger: {
     trigger: ".fourth-section",
@@ -460,6 +486,7 @@ gsap.to(".fifth-section", {
       gsap.to(".sixth-section", {
         alpha: 1,
       });
+      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".fifth-section", {
@@ -468,6 +495,7 @@ gsap.to(".fifth-section", {
       gsap.to(".sixth-section", {
         alpha: 0,
       });
+      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".sixth-section", {
@@ -481,6 +509,50 @@ gsap.to(".fifth-section", {
       });
       gsap.to(".fifth-section", {
         alpha: 0,
+      });
+    },
+  },
+});
+
+// Sixth section
+
+gsap.to(".sixth-section-container", {
+  x: - ((document.querySelector(".sixth-section-container").offsetWidth) - (document.querySelector(".sixth-section-element").offsetWidth)*3),
+  scrollTrigger: {
+    trigger: ".sixth-section",
+    start: "bottom 80%",
+    end: "bottom 20%",
+    scrub: 1,
+  },
+})
+
+gsap.to(".sixth-section", {
+  scrollTrigger: {
+    trigger: ".sixth-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: true,
+    onLeave: () => {
+      gsap.to(".sixth-section", {
+        alpha: 0,
+      });
+      gsap.to(".seventh-section", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".sixth-section", {
+        alpha: 1,
+      });
+      gsap.to(".seventh-section", {
+        alpha: 0,
+      });
+    },
+    onEnter: () => {
+      gsap.to(".seventh-section", {
+        alpha: 0,
+        duration: 0,
       });
     },
   },

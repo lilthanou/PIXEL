@@ -1,21 +1,20 @@
 @font-face {
-  font-family: "Outfit";
-  src: url(font/Outfit-Black.ttf) format("truetype") url(font/Outfit-Bold.ttf)
-    format("truetype") url(font/Outfit-ExtraBold.ttf) format("truetype")
-    url(font/Outfit-ExtraLight.ttf) format("truetype")
-    url(font/Outfit-Light.ttf) format("truetype") url(font/Outfit-Medium.ttf)
-    format("truetype") url(font/Outfit-Regular.ttf) format("truetype")
-    url(font/Outfit-SemiBold.ttf) format("truetype") url(font/Outfit-Thin.ttf)
-    format("truetype");
+  font-family: IBMPlexSans;
+  src: url(font/IBMPlexSans-VariableFont_wdth\wght.ttf);
+}
+
+@font-face {
+  font-family: IBMPlexSansItalic;
+  src: url(font/IBMPlexSans-Italic-VariableFont_wdth\wght.ttf);
 }
 
 * {
   overflow-x: none;
-  font-family: "Outfit", sans-serif;
+  font-family: "IBMPlexSans", sans-serif;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 :root {
@@ -110,11 +109,11 @@ h1 {
   margin: 10svh 0 0 5dvw;
 }
 
-.landing{
+.landing {
   padding: 0;
 }
 
-.landing-squares{
+.landing-squares {
   position: fixed;
   left: 0;
   top: 0;
@@ -124,7 +123,7 @@ h1 {
   z-index: -1;
 }
 
-.square{
+.square {
   width: 14svh;
   height: 14svh;
   background-color: var(--text-color);
@@ -168,16 +167,16 @@ h1 {
   margin-left: 56svh;
 }
 
-.landing-text{
+.landing-text {
   position: fixed;
-  top: 69svh;
+  top: 74svh;
   left: 16svh;
-  font-size: 3svw;
+  font-size: 15px;
   width: 58svw;
   height: 29svw;
 }
 
-.landing-pixel{
+.landing-pixel {
   position: fixed;
   top: 49svh;
   left: 14svh;
@@ -187,7 +186,7 @@ h1 {
   justify-content: center;
   align-items: center;
   background-color: var(--text-color);
-  transform-origin: top left;
+  transform-origin: 33% 90%;
 }
 
 .transition-pixel {
@@ -198,7 +197,7 @@ h1 {
   background-color: var(--text-color);
 }
 
-.pixel-text{
+.pixel-text {
   font-size: 2.5svw;
   color: var(--text-color);
   z-index: 10;
@@ -217,7 +216,7 @@ h1 {
 
 section > p {
   font-size: 20px;
-  margin-top: 10svh;
+  margin-top: 5svh;
 }
 
 .section-line {
@@ -227,17 +226,18 @@ section > p {
   margin: 2svh 0 2svh 0;
 }
 
-.pixel-invader {
-  width: 70svw;
-  height: 70svw;
+.space-invader {
+  width: 80svw;
+  height: 80svw;
   margin: 10svh auto 0 auto;
+  transform-origin: 29% 51%;
 }
 
-.third-section{
+.third-section {
   background-color: var(--text-color);
 }
 
-.third-section-pixel{
+.third-section-pixel {
   width: 20svh;
   height: 20svh;
   background-color: #ff5424;
@@ -246,24 +246,26 @@ section > p {
   margin: 5svh auto 0 auto;
 }
 
-.fourth-section{
+.fourth-section {
   background-color: var(--text-color);
 }
 
-.fourth-section-date{
-  font-size: 40svw;
+.fourth-section-date {
+  font-size: 37svw;
+  font-weight: 900;
   width: fit-content;
   height: 20dvh;
   position: fixed;
-  bottom: 0svh;
+  top: 65svh;
   left: auto;
+  transform-origin: 81% 60%;
 }
 
-.fifth-section > .section-text{
+.fifth-section > .section-text {
   margin-top: 5svh;
 }
 
-.fifth-section-container{
+.fifth-section-container {
   height: 40svh;
   width: 40svh;
   margin: 5svh auto 0 auto;
@@ -275,11 +277,58 @@ section > p {
   row-gap: 2svh;
 }
 
-.fifth-section-box{
+.fifth-section-box {
   width: 11svh;
   height: 11svh;
   background-color: #f4f1f110;
   border: var(--text-color) solid 1px;
   border-radius: 5%;
   background-image: radial-gradient(circle, #ff532400 99%, #f4f1f1 100%);
+}
+
+.sixth-section {
+  background-color: var(--text-color);
+}
+
+.sixth-section-line {
+  height: 2px;
+  width: 290svw;
+  background-color: var(--background-color);
+  position: fixed;
+  top: 9.5svh;
+}
+
+.sixth-section-container {
+  height: 40svh;
+  width: 300svw;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: line;
+  gap: 45svw;
+  position: fixed;
+  top: 35svh;
+  align-items: center;
+}
+
+.sixth-section-element{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap : 1svw;
+}
+
+.sixth-section-text {
+  color: var(--background-color);
+  width: 50svw;
+  font-size: 6svw;
+}
+.sixth-section-circle {
+  width: 6svw;
+  height: 6svw;
+  border-radius: 100%;
+  background-color: var(--background-color);
+}
+.sixth-section-date {
+  color: var(--background-color);
 }
