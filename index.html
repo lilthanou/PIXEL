@@ -68,6 +68,25 @@
       <p class="pixel-text">The world is made of pixels</p>
     </div>
 
+    <section class="chapter-one">
+      <div class="dinosaur-game">
+        <img
+          src="lib/chapter-one-background.svg"
+          alt="dinausor game background"
+        />
+        <img
+          src="lib/chapter-one-dinosaur.svg"
+          class="dinosaur"
+          alt="dinausor"
+        />
+      </div>
+
+      <div class="chapter-header">
+        <div class="chapter-title">Chapter one</div>
+        <div class="chapter-text">Not what you think</div>
+      </div>
+    </section>
+
     <section class="second-section">
       <div class="section-header second-section-header">
         <h3 class="section-title">[1] From wave to pixels</h3>
@@ -129,13 +148,10 @@
     </section>
 
     <section class="fifth-section">
-      <div class="section-header">
-        <h3 class="section-title">[1] From wave to pixels</h3>
-        <h2 class="section-subtitle">A brief history</h2>
-        <div class="section-line"></div>
+      <div class="chapter-header">
+        <div class="chapter-title">Chapter one</div>
+        <div class="chapter-text">Not what you think</div>
       </div>
-
-      <p class="section-text">new chapter</p>
     </section>
 
     <section class="sixth-section">
@@ -146,7 +162,6 @@
       </div>
 
       <div class="sixth-section-container">
-
         <div class="sixth-section-line"></div>
 
         <div class="sixth-section-element">
@@ -175,42 +190,37 @@
 
         <div class="sixth-section-element">
           <p class="sixth-section-text">Fourier Series published</p>
-          <div class="sixth-section-circle"></div>
+          <div class="sixth-section-circle transition-circle">
+            <div class="transition-circle-inner"></div>
+          </div>
           <p class="sixth-section-date">1822</p>
         </div>
+      </div>
+
+      <div class="transition-circle-text">
+        <h4>Fourier</h4>
+        didn’t just live through revolutions. He sparked one. With waves.
       </div>
     </section>
 
     <section class="seventh-section">
       <div class="section-header">
-        <h3 class="section-title">[1] From wave to pixels</h3>
-        <h2 class="section-subtitle">A brief history</h2>
+        <h3 class="section-title">[2] From wave to pixels</h3>
+        <h2 class="section-subtitle">Sound waves</h2>
         <div class="section-line"></div>
       </div>
 
       <p class="section-text">
-        This moment quietly launched the era of digital light — where all
-        images, no matter their source or purpose, are made of pixels.
-        <br /><br />This vast digital world includes:
+        He realized that any signal, even a sound, <b>is just a combination of
+        simple waves.</b>
       </p>
-
-      <div class="fifth-section-container">
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-        <div class="fifth-section-box"></div>
-      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

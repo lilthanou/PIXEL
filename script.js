@@ -1,4 +1,9 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, TextPlugin);
+gsap.registerPlugin(
+  ScrollTrigger,
+  ScrollSmoother,
+  TextPlugin,
+  MotionPathPlugin
+);
 
 let menuOpen = false;
 let backgroundIsOrange = true;
@@ -6,8 +11,10 @@ let buttonMenuColor = "var(--text-color)";
 let sectionTexts = document.querySelectorAll(".section-text");
 let sectionHeaders = document.querySelectorAll(".section-header");
 let sectionLines = document.querySelectorAll(".section-line");
+let chapterHeaders = document.querySelectorAll(".chapter-header");
 let thirdSectionTexts = document.querySelectorAll(".third-section-text-delete");
 let sectionSixthContainer = gsap.utils.toArray(".sixth-section-element");
+let sectionSixthTexts = gsap.utils.toArray(".sixth-section-text");
 
 function openMenu() {
   if (menuOpen) {
@@ -55,6 +62,9 @@ function changeBackgroundColor() {
     sectionLines.forEach((line) => {
       line.style.backgroundColor = "var(--text-color)";
     });
+    chapterHeaders.forEach((header) => {
+      header.style.color = "var(--text-color)";
+    });
   } else {
     buttonMenuColor = "var(--background-color)";
     document.querySelector(".button-menu").style.backgroundColor =
@@ -67,6 +77,9 @@ function changeBackgroundColor() {
     });
     sectionLines.forEach((line) => {
       line.style.backgroundColor = "var(--background-color)";
+    });
+    chapterHeaders.forEach((header) => {
+      header.style.color = "var(--background-color)";
     });
   }
 }
@@ -93,7 +106,7 @@ gsap.to(".landing-pixel", {
           delimiter: "",
           value: "Everything you see.. starts here",
         },
-        duration: 0.6,
+        scrub: 1,
       });
     },
     onEnterBack: () => {
@@ -106,7 +119,7 @@ gsap.to(".landing-pixel", {
           delimiter: "",
           value: "The world is made of pixels",
         },
-        duration: 0.6,
+        scrub: 1,
       });
     },
     onLeaveBack: () => {
@@ -146,7 +159,7 @@ gsap.to(".transition-pixel", {
         duration: 0.3,
         display: "none",
       });
-      gsap.to(".second-section", {
+      gsap.to(".chapter-one", {
         alpha: 1,
         duration: 0.3,
       });
@@ -157,14 +170,70 @@ gsap.to(".transition-pixel", {
         duration: 0.3,
         display: "flex",
       });
-      gsap.to(".second-section", {
+      gsap.to(".chapter-one", {
         alpha: 0,
         duration: 0.3,
       });
     },
     onEnter: () => {
-      gsap.to(".second-section", {
+      gsap.to(".chapter-one", {
         alpha: 0,
+        duration: 0.3,
+      });
+    },
+  },
+});
+
+// Chapter one
+
+gsap.to(".dinosaur", {
+  motionPath: {
+    path: [
+      { x: 0, y: 0 },
+      { x: 180, y: 0 },
+      { x: 300, y: -100 },
+      { x: 420, y: 0 },
+      { x: 450, y: 0 },
+    ],
+  },
+  scrollTrigger: {
+    trigger: ".chapter-one",
+    start: "top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
+/* gsap.to(".chapter-one", {
+  scale: 3,
+  scrollTrigger: {
+    trigger: ".chapter-one",
+    start: "bottom 50%",
+    end: "bottom",
+    scrub: 1,
+  },
+}); */
+
+gsap.to(".chapter-one", {
+  scrollTrigger: {
+    trigger: ".chapter-one",
+    start: "top",
+    end: "bottom",
+    scrub: 1,
+    pin: true,
+    onLeave: () => {
+      gsap.to(".chapter-one", {
+        alpha: 0,
+        duration: 0.3,
+      });
+      gsap.to(".second-section", {
+        alpha: 1,
+        duration: 0.3,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".chapter-one", {
+        alpha: 1,
         duration: 0.3,
       });
     },
@@ -181,7 +250,7 @@ gsap.to(".space-invader", {
     end: "bottom -30%",
     scrub: 1,
     onEnter: () => {
-      gsap.to(".fourth-section", {
+      gsap.to(".third-section", {
         alpha: 0,
         duration: 0.3,
       });
@@ -206,7 +275,7 @@ gsap.to(".space-invader", {
 });
 
 gsap.to(".second-section-header", {
-  alpha : 0,
+  alpha: 0,
   scrollTrigger: {
     trigger: ".second-section",
     start: "bottom 60%",
@@ -216,7 +285,7 @@ gsap.to(".second-section-header", {
 });
 
 gsap.to(".second-section > p", {
-  alpha : 0,
+  alpha: 0,
   scrollTrigger: {
     trigger: ".second-section",
     start: "bottom 60%",
@@ -297,41 +366,32 @@ gsap.to(".third-section-pixel", {
   scrollTrigger: {
     trigger: ".third-section",
     start: "bottom 30%",
-    end: "bottom",
+    end: "bottom 10%",
     scrub: 1,
   },
 });
 
 // Third section text
-gsap.to(".third-section-pixel", {
+gsap.to(".third-section-text", {
+  text: {
+    delimiter: "",
+    value: "It doesn't have edges. <br/><br/>It doesn't have a shape.",
+    preserveSpaces: true,
+  },
   scrollTrigger: {
     trigger: ".third-section",
     start: "bottom 30%",
-    end: "bottom 30%",
+    end: "bottom 40%",
     scrub: 1,
     onEnter: () => {
-      gsap.to(".third-section-text", {
-        text: {
-          delimiter: "",
-          value: "It doesn't have edges. <br/><br/>It doesn't have a shape.",
-          preserveSpaces: true,
-        },
-      }),
-        gsap.to(".third-section-text-delete", {
-          alpha: 0,
-        });
+      gsap.to(".third-section-text-delete", {
+        alpha: 0,
+      });
     },
     onEnterBack: () => {
-      gsap.to(".third-section-text", {
-        text: {
-          delimiter: "",
-          value: "A pixel is a <b>point of light.</b>",
-          preserveSpaces: true,
-        },
-      }),
-        gsap.to(".third-section-text-delete", {
-          alpha: 1,
-        });
+      gsap.to(".third-section-text-delete", {
+        alpha: 1,
+      });
     },
   },
 });
@@ -349,72 +409,74 @@ gsap.to(".third-section-pixel", {
         "#0000FF";
     },
     onEnter: () => {
-      gsap.to(".third-section-text", {
-        text: {
-          delimiter: "",
-          value:
-            "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/>this color, at this moment, right here.",
-          preserveSpaces: true,
-        },
-      }),
-        gsap.to(".third-section-text-delete", {
-          alpha: 0,
-        });
+      gsap.to(".third-section-text-delete", {
+        alpha: 0,
+      });
     },
     onEnterBack: () => {
-      gsap.to(".third-section-text", {
-        text: {
-          delimiter: "",
-          value: "A pixel is a <b>point of light.</b>",
-          preserveSpaces: true,
-        },
-      }),
-        gsap.to(".third-section-text-delete", {
-          alpha: 1,
-        });
+      gsap.to(".third-section-text-delete", {
+        alpha: 1,
+      });
     },
   },
 });
 
-gsap.to(".third-section", {
+gsap.to(".third-section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/>this color, at this moment, right here.",
+    preserveSpaces: true,
+  },
   scrollTrigger: {
     trigger: ".third-section",
-    start: "top",
-    end: "bottom",
-    pin: true,
-    scrub: true,
-    onLeave: () => {
-      gsap.to(".third-section", {
-        alpha: 0,
-      });
-      gsap.to(".fourth-section", {
-        alpha: 1,
-      });
-    },
-    onEnterBack: () => {
-      gsap.to(".third-section", {
-        alpha: 1,
-      });
-      gsap.to(".fourth-section", {
-        alpha: 0,
-      });
-    },
-    onEnter: () => {
-      gsap.to(".fourth-section", {
-        alpha: 0,
-        duration: 0,
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(".fourth-section", {
-        alpha: 1,
-      });
-      gsap.to(".third-section", {
-        alpha: 0,
-      });
-    },
+    start: "bottom 40%",
+    end: "bottom 50%",
+    scrub: 1,
   },
-});
+})
+
+  gsap.to(".third-section", {
+    scrollTrigger: {
+      trigger: ".third-section",
+      start: "top",
+      end: "bottom",
+      pin: true,
+      scrub: true,
+      onLeave: () => {
+        gsap.to(".third-section", {
+          alpha: 0,
+        });
+        gsap.to(".fourth-section", {
+          alpha: 1,
+        });
+        changeBackgroundColor();
+      },
+      onEnterBack: () => {
+        gsap.to(".third-section", {
+          alpha: 1,
+        });
+        gsap.to(".fourth-section", {
+          alpha: 0,
+        });
+        changeBackgroundColor();
+      },
+      onEnter: () => {
+        gsap.to(".fourth-section", {
+          alpha: 0,
+          duration: 0,
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(".fourth-section", {
+          alpha: 1,
+        });
+        gsap.to(".third-section", {
+          alpha: 0,
+        });
+      },
+    },
+  });
 
 // Fourth section
 
@@ -442,7 +504,6 @@ gsap.to(".fourth-section", {
       gsap.to(".fifth-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".fourth-section", {
@@ -451,7 +512,6 @@ gsap.to(".fourth-section", {
       gsap.to(".fifth-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".fifth-section", {
@@ -517,14 +577,65 @@ gsap.to(".fifth-section", {
 // Sixth section
 
 gsap.to(".sixth-section-container", {
-  x: - ((document.querySelector(".sixth-section-container").offsetWidth) - (document.querySelector(".sixth-section-element").offsetWidth)*3),
+  x: "-340svw",
   scrollTrigger: {
     trigger: ".sixth-section",
-    start: "bottom 80%",
-    end: "bottom 20%",
+    start: "10% top",
+    end: "60% top",
+    scrub: 1,
+    snap: {
+      snapTo: [0, 0.135, 0.31, 0.55, 1],
+      duration: 0.3,
+      delay: 0.1,
+    },
+  },
+});
+
+gsap.to(".transition-circle", {
+  scale: 13,
+  x: "1svw",
+  scrollTrigger: {
+    trigger: ".sixth-section",
+    start: "60% top",
+    end: "80% top",
+    scrub: 1,
+    onEnter: () => {
+      gsap.to(sectionSixthTexts, {
+        alpha: 0,
+        duration: 1,
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(sectionSixthTexts, {
+        alpha: 1,
+        duration: 1,
+      });
+    },
+    onLeave: () => {
+      gsap.to(".circle-transition", {});
+    },
+  },
+});
+
+gsap.to(".transition-circle-text", {
+  alpha: 1,
+  scrollTrigger: {
+    trigger: ".sixth-section",
+    start: "70% top",
+    end: "80% top",
     scrub: 1,
   },
-})
+});
+
+gsap.to(".transition-circle-inner", {
+  scale: 4,
+  scrollTrigger: {
+    trigger: ".sixth-section",
+    start: "85% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
 
 gsap.to(".sixth-section", {
   scrollTrigger: {
@@ -540,6 +651,7 @@ gsap.to(".sixth-section", {
       gsap.to(".seventh-section", {
         alpha: 1,
       });
+      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".sixth-section", {
@@ -548,6 +660,7 @@ gsap.to(".sixth-section", {
       gsap.to(".seventh-section", {
         alpha: 0,
       });
+      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".seventh-section", {
@@ -555,5 +668,47 @@ gsap.to(".sixth-section", {
         duration: 0,
       });
     },
+  },
+});
+
+// Seventh section
+
+gsap.to(".seventh-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "We all know music is made of waves. Each sound , every note, every chords, is a blend of waves: <br><br>some faster (higher pitch), some taller (louder).",
+  },
+  scrollTrigger: {
+    trigger: ".seventh-section",
+    start: "10% top",
+    end: "20% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".seventh-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "Stack them together, and the simple becomes complex. <br><br>A single tone becomes a melody.",
+  },
+  scrollTrigger: {
+    trigger: ".seventh-section",
+    start: "30% top",
+    end: "40% top",
+    scrub: 1,
+  },
+});
+
+
+
+gsap.to(".seventh-section", {
+  scrollTrigger: {
+    trigger: ".seventh-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: true,
   },
 });
