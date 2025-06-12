@@ -971,13 +971,12 @@ gsap.to(".tenth-section", {
 
 gsap.to(tenthSectionCircles, {
   /* backgroundImage : "radial-gradient(circle,rgba(255, 83, 36, 0.76) 30%,rgba(244, 241, 241, 0) 70%)", */
-  filter : "blur(5px)",
+  filter: "blur(5px)",
   scrollTrigger: {
     trigger: ".tenth-section",
     start: "60% top",
     end: "bottom",
     scrub: true,
-    markers: true,
   },
 });
 
@@ -1000,7 +999,6 @@ gsap.to(".tenth-section", {
       gsap.to(".tenth-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".eleventh-section", {
@@ -1009,16 +1007,56 @@ gsap.to(".tenth-section", {
       gsap.to(".tenth-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
   },
 });
 
 //eleventh section
 
+gsap.to(".eleventh-section-point", {
+  scale: 0.3,
+  scrollTrigger: {
+    trigger: ".eleventh-section-point",
+    start: "20% top",
+    end: "60% top",
+    scrub: 1,
+  },
+});
+
 gsap.to(".eleventh-section", {
   scrollTrigger: {
     trigger: ".eleventh-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: 1,
+    onEnter: () => {
+      gsap.to(".twelth-section", {
+        alpha: 0,
+      });
+    },
+    onLeave: () => {
+      gsap.to(".twelth-section", {
+        alpha: 1,
+      });
+      gsap.to(".eleventh-section", {
+        alpha: 0,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".twelth-section", {
+        alpha: 0,
+      });
+      gsap.to(".eleventh-section", {
+        alpha: 1,
+      });
+    },
+  },
+});
+
+gsap.to(".twelth-section", {
+  scrollTrigger: {
+    trigger: ".twelth-section",
     start: "top",
     end: "bottom",
     pin: true,

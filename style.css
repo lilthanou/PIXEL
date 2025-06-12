@@ -503,3 +503,27 @@ section > p {
   height: 10dvw;
   border-radius: 100%;
 }
+
+.eleventh-section {
+  background-color: var(--text-color);
+}
+
+.eleventh-section-point{
+  background-color: var(--background-color);
+  width: 30dvw;
+  height: 30dvw;
+  border-radius: 100%;
+  margin: 10dvh auto;
+  filter: blur(20px);
+}
+
+.mona-lisa{
+  background-color: var(--background-color);
+  display: none;
+  opacity: 0;
+}
+
+.twelth-section {
+  background-color: var(--text-color);
+  opacity: 0;
+}
