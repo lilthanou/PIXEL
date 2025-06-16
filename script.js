@@ -109,7 +109,6 @@ gsap.to(".landing-pixel", {
           delimiter: "",
           value: "Everything you see.. starts here",
         },
-        scrub: 1,
       });
     },
     onEnterBack: () => {
@@ -122,7 +121,6 @@ gsap.to(".landing-pixel", {
           delimiter: "",
           value: "The world is made of pixels",
         },
-        scrub: 1,
       });
     },
     onLeaveBack: () => {
@@ -251,29 +249,7 @@ gsap.to(".space-invader", {
     trigger: ".second-section",
     start: "bottom 60%",
     end: "bottom -30%",
-    scrub: 1,
-    onEnter: () => {
-      gsap.to(".third-section", {
-        alpha: 0,
-        duration: 0.3,
-      });
-    },
-    onLeave: () => {
-      gsap.to(".second-section", {
-        alpha: 0,
-        duration: 0.3,
-      });
-    },
-    onEnterBack: () => {
-      gsap.to(".space-invader", {
-        alpha: 1,
-        duration: 0.3,
-      });
-      gsap.to(".second-section", {
-        alpha: 1,
-        duration: 0.3,
-      });
-    },
+    scrub: true,
   },
 });
 
@@ -283,7 +259,7 @@ gsap.to(".second-section-header", {
     trigger: ".second-section",
     start: "bottom 60%",
     end: "bottom",
-    scrub: true,
+    scrub: 1,
   },
 });
 
@@ -293,7 +269,7 @@ gsap.to(".second-section > p", {
     trigger: ".second-section",
     start: "bottom 60%",
     end: "bottom",
-    scrub: true,
+    scrub: 1,
   },
 });
 
@@ -303,7 +279,7 @@ gsap.to(".second-section", {
     start: "top",
     end: "bottom",
     pin: true,
-    scrub: true,
+    scrub: 1,
     onLeave: () => {
       gsap.to(".second-section", {
         alpha: 0,
@@ -321,6 +297,7 @@ gsap.to(".second-section", {
       gsap.to(".third-section", {
         alpha: 0,
       });
+
       changeBackgroundColor();
     },
     onEnter: () => {
@@ -445,7 +422,7 @@ gsap.to(".third-section", {
     start: "top",
     end: "bottom",
     pin: true,
-    scrub: true,
+    scrub: 1,
     onLeave: () => {
       gsap.to(".third-section", {
         alpha: 0,
@@ -499,7 +476,7 @@ gsap.to(".fourth-section", {
     start: "top",
     end: "bottom",
     pin: true,
-    scrub: true,
+    scrub: 1,
     onLeave: () => {
       gsap.to(".fourth-section", {
         alpha: 0,
@@ -541,7 +518,7 @@ gsap.to(".fifth-section", {
     start: "top",
     end: "bottom",
     pin: true,
-    scrub: true,
+    scrub: 1,
     onLeave: () => {
       gsap.to(".fifth-section", {
         alpha: 0,
@@ -643,7 +620,7 @@ gsap.to(".sixth-section", {
     start: "top",
     end: "bottom",
     pin: true,
-    scrub: true,
+    scrub: 1,
     onLeave: () => {
       gsap.to(".sixth-section", {
         alpha: 0,
@@ -683,7 +660,7 @@ gsap.to(".seventh-section > .section-text", {
     trigger: ".seventh-section",
     start: "10% top",
     end: "20% top",
-    scrub: true,
+    scrub: 1,
   },
 });
 
@@ -807,7 +784,7 @@ gsap.from(".wave", {
     trigger: ".eighth-section",
     start: "top",
     end: "20% top",
-    scrub: true,
+    scrub: 1,
     onEnter: () => {
       document.querySelector(".eighth-section > p").innerHTML =
         "In 1933, Vladimir Kotelnikov published the Sampling Theorem:<br /><br />He proved you could take a smooth continous wave ...";
@@ -821,7 +798,7 @@ gsap.from(".wave", {
     trigger: ".eighth-section",
     start: "30% top",
     end: "40% top",
-    scrub: true,
+    scrub: 1,
     onEnter: () => {
       document.querySelector(".eighth-section > p").innerHTML =
         "And if you only keep a few key points ...";
@@ -976,7 +953,7 @@ gsap.to(tenthSectionCircles, {
     trigger: ".tenth-section",
     start: "60% top",
     end: "bottom",
-    scrub: true,
+    scrub: 1,
   },
 });
 
