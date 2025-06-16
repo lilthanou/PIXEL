@@ -16,24 +16,20 @@
         class="menu-element"
         onclick="window.scrollTo(0, 0, { behavior: 'smooth' }), openMenu()"
       >
-        <div>00</div>
-        <h3>The Story</h3>
-      </a>
-      <a class="menu-element">
         <div>01</div>
-        <h3>From wave to pixels</h3>
+        <h3>Not what you think</h3>
       </a>
       <a class="menu-element">
         <div>02</div>
-        <h3>The illusion of squares</h3>
+        <h3>From wave to pixels</h3>
       </a>
       <a class="menu-element">
         <div>03</div>
-        <h3>Pixels take over the world</h3>
+        <h3>Kotelnikov and the digital turn</h3>
       </a>
       <a class="menu-element">
         <div>04</div>
-        <h3>End of game</h3>
+        <h3>Pixels take over the world</h3>
       </a>
     </nav>
 
@@ -67,7 +63,8 @@
       <div class="dinosaur-game">
         <img
           src="lib/chapter-one-background.svg"
-          alt="dinausor game background"
+          alt="dinausor-game-background"
+          class="dinosaur-game-background"
         />
         <img
           src="lib/chapter-one-dinosaur.svg"
@@ -77,7 +74,7 @@
       </div>
 
       <div class="chapter-header">
-        <div class="chapter-title">Chapter one</div>
+        <div class="chapter-title">Chapter 1</div>
         <div class="chapter-text">Not what you think</div>
       </div>
     </section>
@@ -99,7 +96,7 @@
         alt="space invader"
       />
 
-      <p class="section-text">But that image ? It's a myth.</p>
+      <p class="section-text">But those tiny squares, <b class="second-section-emphasis">are a myth.</b></p>
     </section>
 
     <section class="third-section">
@@ -110,7 +107,6 @@
       </div>
 
       <p class="section-text third-section-text">
-        A pixel is a <b>point of light.</b>
       </p>
 
       <div class="third-section-pixel"></div>
@@ -142,11 +138,18 @@
       <p class="section-text fourth-section-date">1790</p>
     </section>
 
-    <section class="fifth-section">
+    <section class="chapter-two">
       <div class="chapter-header">
         <div class="chapter-title">Chapter two</div>
         <div class="chapter-text">Not what you think</div>
       </div>
+      <img
+        class="chapter-image"
+        src="lib/fourrier-VF.png"
+        alt="chapter two background"
+      />
+
+      <div class="chapter-gradient"></div>
     </section>
 
     <section class="sixth-section">
@@ -209,6 +212,8 @@
         He realized that any signal, even a sound,
         <b>is just a combination of simple waves.</b>
       </p>
+
+      <canvas id="sineCanvas"></canvas>
     </section>
 
     <section class="chapter-three">
@@ -216,6 +221,31 @@
         <div class="chapter-title">Chapter three</div>
         <div class="chapter-text">Meet Kotelnikov</div>
       </div>
+      <img
+        class="chapter-image"
+        src="lib/kotelnikov-VF.png"
+        alt="chapter four background"
+      />
+      <div class="chapter-gradient"></div>
+    </section>
+
+    <section class="chapter-three-presentation">
+      <div class="section-header">
+        <h3 class="section-title">[3] From wave to pixels</h3>
+        <h2 class="section-subtitle">Kotelnikov</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p class="section-text">
+        Vladimir Kotelnikov, a Russian engineer and mathematician, built on
+        Fourier’s wave theory… … and made it digital.
+      </p>
+
+      <img
+        class="chapter-three-presentation-img"
+        src="lib/kotelnikov-VF.png"
+        alt="Kotelnikov"
+      />
     </section>
 
     <section class="eighth-section">
@@ -245,7 +275,7 @@
           <div class="wave-point"></div>
           <div class="wave-point"></div>
           <div class="wave-point"></div>
-          <div class="wave-point"></div>
+          <div class="wave-point wave-point-transition"></div>
           <div class="wave-point"></div>
           <div class="wave-point"></div>
           <div class="wave-point"></div>
@@ -373,12 +403,77 @@
         <div class="section-line"></div>
       </div>
 
-      <img class="mona-lisa" src="lib/mona-lisa.jpg" alt="mona lisa" />
+      <img
+        class="twelth-section-img"
+        src="lib/monalisa-VF.png"
+        alt="Mona Lisa"
+      />
       <p class="section-text">
-        No square, <br />
-        No shape, <br />
-        <b>Just information.</b>
+        <b>
+          We never see the real pixels.We see their illusion, shaped by screens,
+          grids, and graphics. But underneath, it’s just math, light, and
+          imagination.
+        </b>
       </p>
+    </section>
+
+    <section class="chapter-four">
+      <div class="chapter-header">
+        <div class="chapter-title">Chapter four</div>
+        <div class="chapter-text">Pixels take over the world</div>
+      </div>
+
+      <img
+        class="chapter-image"
+        src="lib/monalisa-VF.png"
+        alt="chapter four background"
+      />
+      <div class="chapter-gradient"></div>
+    </section>
+
+    <section class="thirteenth-section">
+      <div class="section-header">
+        <h3 class="section-title">[3] From wave to pixels</h3>
+        <h2 class="section-subtitle">Kotelnikov</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p class="section-text">
+        In 1948, the Manchester Baby became the world’s first stored-program
+        computer. It was the very first machine to display digital pixels, the
+        building blocks of every image we see on screens today.
+      </p>
+    </section>
+
+    <section class="fourteenth-section">
+      <div class="section-header">
+        <h3 class="section-title">[3] Pixels take over the world</h3>
+        <h2 class="section-subtitle">fnji</h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="section-text">
+        Since 1965, computer power has grown by over 100 billion times, doubling
+        every 18 months.This explosive growth enabled color pixels and 3D
+        graphics — a revolution in digital images.
+      </p>
+      <div class="fourteenth-section-container"></div>
+    </section>
+
+    <section class="fifteenth-section">
+      <div class="section-header">
+        <h3 class="section-title">[4] Pixels take over the world</h3>
+        <h2 class="section-subtitle">Today</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <p class="section-text">
+        From cellphone photos to VR and video games, pixels are the foundation
+        of modern digital visuals.As the article puts it, “what had been ink and
+        paper, photographs, movies, and television became, in a blink, just
+        pixels.”
+      </p>
+
+      <p class="section-text fifteenth-section-date">2025</p>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>

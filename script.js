@@ -12,7 +12,6 @@ let buttonMenuColor = "var(--text-color)";
 let sectionTexts = document.querySelectorAll(".section-text");
 let sectionHeaders = document.querySelectorAll(".section-header");
 let sectionLines = document.querySelectorAll(".section-line");
-let chapterHeaders = document.querySelectorAll(".chapter-header");
 let thirdSectionTexts = document.querySelectorAll(".third-section-text-delete");
 let sectionSixthContainer = gsap.utils.toArray(".sixth-section-element");
 let sectionSixthTexts = gsap.utils.toArray(".sixth-section-text");
@@ -65,9 +64,6 @@ function changeBackgroundColor() {
     sectionLines.forEach((line) => {
       line.style.backgroundColor = "var(--text-color)";
     });
-    chapterHeaders.forEach((header) => {
-      header.style.color = "var(--text-color)";
-    });
   } else {
     buttonMenuColor = "var(--background-color)";
     document.querySelector(".button-menu").style.backgroundColor =
@@ -81,9 +77,6 @@ function changeBackgroundColor() {
     sectionLines.forEach((line) => {
       line.style.backgroundColor = "var(--background-color)";
     });
-    chapterHeaders.forEach((header) => {
-      header.style.color = "var(--background-color)";
-    });
   }
 }
 
@@ -95,7 +88,7 @@ gsap.to(".landing-pixel", {
   scrollTrigger: {
     trigger: ".landing",
     start: "top",
-    end: "10% top",
+    end: "30% top",
     scrub: 1,
     onEnter: () => {
       gsap.to(".pixel-text", {
@@ -137,7 +130,7 @@ gsap.to(".landing", {
   scrollTrigger: {
     trigger: ".landing",
     start: "top",
-    end: "10% top",
+    end: "30% top",
     pin: true,
     pinSpacing: true,
     scrub: 1,
@@ -199,21 +192,22 @@ gsap.to(".dinosaur", {
   },
   scrollTrigger: {
     trigger: ".chapter-one",
-    start: "top",
-    end: "bottom",
+    start: "20% top",
+    end: "80% top",
     scrub: 1,
   },
 });
 
-/* gsap.to(".chapter-one", {
-  scale: 3,
+gsap.to(".chapter-one", {
+  scale: 10,
+  filter: "blur(5px)",
   scrollTrigger: {
     trigger: ".chapter-one",
-    start: "bottom 50%",
+    start: "80% top",
     end: "bottom",
     scrub: 1,
   },
-}); */
+});
 
 gsap.to(".chapter-one", {
   scrollTrigger: {
@@ -245,11 +239,12 @@ gsap.to(".chapter-one", {
 
 gsap.to(".space-invader", {
   scale: 8,
+  filter: "blur(1px)",
   scrollTrigger: {
     trigger: ".second-section",
-    start: "bottom 60%",
-    end: "bottom -30%",
-    scrub: true,
+    start: "20% top",
+    end: "bottom",
+    scrub: 1,
   },
 });
 
@@ -327,8 +322,8 @@ gsap.to(".third-section-pixel", {
   scale: 1.7,
   scrollTrigger: {
     trigger: ".third-section",
-    start: "top -10%",
-    end: "bottom 30%",
+    start: "10% top",
+    end: "30% top",
     scrub: 1,
     onLeave: () => {
       document.querySelector(".third-section-pixel").style.backgroundImage =
@@ -342,11 +337,11 @@ gsap.to(".third-section-pixel", {
 });
 
 gsap.to(".third-section-pixel", {
-  y: "10svh",
+  y: "50svw",
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 30%",
-    end: "bottom 10%",
+    start: "30% top",
+    end: "80% top",
     scrub: 1,
   },
 });
@@ -355,13 +350,27 @@ gsap.to(".third-section-pixel", {
 gsap.to(".third-section-text", {
   text: {
     delimiter: "",
+    value: "A pixel is a <b>point of light</b>.",
+    preserveSpaces: true,
+  },
+  scrollTrigger: {
+    trigger: ".third-section",
+    start: "top",
+    end: "20% top",
+    scrub: 1,
+  }
+});
+
+gsap.to(".third-section-text", {
+  text: {
+    delimiter: "",
     value: "It doesn't have edges. <br/><br/>It doesn't have a shape.",
     preserveSpaces: true,
   },
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 30%",
-    end: "bottom 40%",
+    start: "30% top",
+    end: "50% top",
     scrub: 1,
     onEnter: () => {
       gsap.to(".third-section-text-delete", {
@@ -378,16 +387,12 @@ gsap.to(".third-section-text", {
 
 // Third section pixel color change to blue and text
 gsap.to(".third-section-pixel", {
-  backgroundColor: "#0000FF",
+  filter: "hue-rotate(240deg)",
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 20%",
-    end: "bottom",
+    start: "60% top",
+    end: "70% top",
     scrub: 1,
-    onLeave: () => {
-      document.querySelector(".third-section-pixel").style.backgroundColor =
-        "#0000FF";
-    },
     onEnter: () => {
       gsap.to(".third-section-text-delete", {
         alpha: 0,
@@ -405,13 +410,23 @@ gsap.to(".third-section-text", {
   text: {
     delimiter: "",
     value:
-      "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/>this color, at this moment, right here.",
+      "It’s a signal, one that triggers a tiny burst of red, green, and blue light. <br/><br/>Like a spotlight on a stage, a pixel performs a precise cue: <br/><b>This color, at this moment, right here.</b>",
     preserveSpaces: true,
   },
   scrollTrigger: {
     trigger: ".third-section",
-    start: "bottom 40%",
-    end: "bottom 50%",
+    start: "60% top",
+    end: "80% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".third-section-pixel", {
+  backgroundColor: "#f4f1f1",
+  scrollTrigger: {
+    trigger: ".third-section",
+    start: "80% top",
+    end: "bottom",
     scrub: 1,
   },
 });
@@ -481,7 +496,7 @@ gsap.to(".fourth-section", {
       gsap.to(".fourth-section", {
         alpha: 0,
       });
-      gsap.to(".fifth-section", {
+      gsap.to(".chapter-two", {
         alpha: 1,
       });
     },
@@ -489,38 +504,24 @@ gsap.to(".fourth-section", {
       gsap.to(".fourth-section", {
         alpha: 1,
       });
-      gsap.to(".fifth-section", {
-        alpha: 0,
-      });
-    },
-    onEnter: () => {
-      gsap.to(".fifth-section", {
-        alpha: 0,
-        duration: 0,
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(".fifth-section", {
-        alpha: 1,
-      });
-      gsap.to(".fourth-section", {
+      gsap.to(".chapter-two", {
         alpha: 0,
       });
     },
   },
 });
 
-// Fifth section
+// Chapter two
 
-gsap.to(".fifth-section", {
+gsap.to(".chapter-two", {
   scrollTrigger: {
-    trigger: ".fifth-section",
+    trigger: ".chapter-two",
     start: "top",
     end: "bottom",
     pin: true,
     scrub: 1,
     onLeave: () => {
-      gsap.to(".fifth-section", {
+      gsap.to(".chapter-two", {
         alpha: 0,
       });
       gsap.to(".sixth-section", {
@@ -529,7 +530,7 @@ gsap.to(".fifth-section", {
       changeBackgroundColor();
     },
     onEnterBack: () => {
-      gsap.to(".fifth-section", {
+      gsap.to(".chapter-two", {
         alpha: 1,
       });
       gsap.to(".sixth-section", {
@@ -547,7 +548,7 @@ gsap.to(".fifth-section", {
       gsap.to(".sixth-section", {
         alpha: 1,
       });
-      gsap.to(".fifth-section", {
+      gsap.to(".chapter-two", {
         alpha: 0,
       });
     },
@@ -741,7 +742,95 @@ gsap.to(".seventh-section", {
   },
 });
 
+const canvas = document.getElementById("sineCanvas");
+const ctx = canvas.getContext("2d");
+const dpr = window.devicePixelRatio || 1;
+
+function resizeCanvas() {
+  const width = window.innerWidth;
+  const height = window.innerHeight / 2;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.scale(dpr, dpr);
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let time = 0;
+
+function drawGrid(width, height) {
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.9)";
+  ctx.lineWidth = 0.5;
+
+  for (let x = 0; x <= width; x += 50) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+
+  for (let y = 0; y <= height; y += 50) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
+}
+
+function drawSingleWave(yOffset, amplitude, frequency, color, speed) {
+  ctx.beginPath();
+  ctx.moveTo(0, yOffset);
+
+  for (let x = 0; x < window.innerWidth; x++) {
+    const y = yOffset + Math.sin((x + time * speed) * frequency) * amplitude;
+    ctx.lineTo(x, y);
+  }
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+function draw() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  ctx.clearRect(0, 0, width, height);
+  drawGrid(width, height);
+
+  const sharedFrequency = 0.04;
+
+  const topY = height * 0.12;
+  const midY = height * 0.3;
+  const botY = height * 0.4;
+
+  drawSingleWave(topY, height * 0.1, sharedFrequency, "f4f1f1", 0.5); // Top wave
+  drawSingleWave(midY, height * 0.06, sharedFrequency, "f4f1f1", 1); // Middle wave (slightly smaller)
+  drawSingleWave(botY, height * 0.03, sharedFrequency, "f4f1f1", 0.7); // Bottom wave
+
+  time += 2;
+  requestAnimationFrame(draw);
+}
+
+draw();
+
 // Chapter three
+
+gsap.to(".chapter-three > img", {
+  scale: 0.55,
+  x: "-10svw",
+  scrollTrigger: {
+    trigger: ".chapter-three",
+    start: "top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
 
 gsap.to(".chapter-three", {
   scrollTrigger: {
@@ -750,23 +839,57 @@ gsap.to(".chapter-three", {
     end: "bottom",
     pin: true,
     scrub: 1,
-    onEnter: () => {
-      gsap.to(".eighth-section", {
-        alpha: 0,
-        duration: 0,
-      });
-    },
     onLeave: () => {
       gsap.to(".chapter-three", {
         alpha: 0,
       });
-      gsap.to(".eighth-section", {
+      gsap.to(".chapter-three-presentation", {
         alpha: 1,
         duration: 0,
       });
     },
     onEnterBack: () => {
       gsap.to(".chapter-three", {
+        alpha: 1,
+      });
+      gsap.to(".chapter-three-presentation", {
+        alpha: 0,
+      });
+    },
+  },
+});
+
+//Chapter three bis
+
+gsap.to(".chapter-three-presentation > img", {
+  scale: 10,
+  xPercent: 10,
+  yPercent: 300,
+  scrollTrigger: {
+    trigger: ".chapter-three-presentation",
+    start: "80% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
+gsap.to(".chapter-three-presentation", {
+  scrollTrigger: {
+    trigger: ".chapter-three-presentation",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: 1,
+    onLeave: () => {
+      gsap.to(".chapter-three-presentation", {
+        alpha: 0,
+      });
+      gsap.to(".eighth-section", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".chapter-three-presentation", {
         alpha: 1,
       });
       gsap.to(".eighth-section", {
@@ -850,6 +973,19 @@ gsap.from(".wave", {
       document.querySelector(".eighth-section > p").innerHTML =
         "Just the dots, and nothing else.";
     },
+  },
+});
+
+gsap.to(".wave-point-transition", {
+  width: "100dvh",
+  height: "100dvh",
+  x: "-110dvw",
+  y: "-120dvw",
+  scrollTrigger: {
+    trigger: ".eighth-section",
+    start: "80% top",
+    end: "bottom",
+    scrub: 1,
   },
 });
 
@@ -957,6 +1093,17 @@ gsap.to(tenthSectionCircles, {
   },
 });
 
+gsap.to(".tenth-section-container", {
+  scale: 4,
+  y: "-20svh",
+  scrollTrigger: {
+    trigger: ".tenth-section",
+    start: "90% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
 gsap.to(".tenth-section", {
   scrollTrigger: {
     trigger: ".tenth-section",
@@ -964,16 +1111,12 @@ gsap.to(".tenth-section", {
     end: "bottom",
     pin: true,
     scrub: 1,
-    onEnter: () => {
-      gsap.to(".eleventh-section", {
-        alpha: 0,
-      });
-    },
     onLeave: () => {
       gsap.to(".eleventh-section", {
         alpha: 1,
       });
       gsap.to(".tenth-section", {
+        duration: 0.1,
         alpha: 0,
       });
     },
@@ -983,6 +1126,7 @@ gsap.to(".tenth-section", {
       });
       gsap.to(".tenth-section", {
         alpha: 1,
+        duration: 0.1,
       });
     },
   },
@@ -1007,11 +1151,6 @@ gsap.to(".eleventh-section", {
     end: "bottom",
     pin: true,
     scrub: 1,
-    onEnter: () => {
-      gsap.to(".twelth-section", {
-        alpha: 0,
-      });
-    },
     onLeave: () => {
       gsap.to(".twelth-section", {
         alpha: 1,
@@ -1031,9 +1170,135 @@ gsap.to(".eleventh-section", {
   },
 });
 
+// Twelth section
+
+gsap.to(".twelth-section-img", {
+  scale: 2,
+  y: "40svw",
+  scrollTrigger: {
+    trigger: ".twelth-section",
+    start: "80% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
 gsap.to(".twelth-section", {
   scrollTrigger: {
     trigger: ".twelth-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: 1,
+    onLeave: () => {
+      gsap.to(".twelth-section", {
+        alpha: 0,
+      });
+      gsap.to(".chapter-four", {
+        alpha: 1,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".chapter-four", {
+        alpha: 0,
+      });
+      gsap.to(".twelth-section", {
+        alpha: 1,
+      });
+    },
+  },
+});
+
+// Chapter four
+
+gsap.to(".chapter-four", {
+  scrollTrigger: {
+    trigger: ".chapter-four",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: 1,
+    onLeave: () => {
+      gsap.to(".thirteenth-section", {
+        alpha: 1,
+      });
+      gsap.to(".chapter-four", {
+        alpha: 0,
+      });
+      changeBackgroundColor();
+    },
+    onEnterBack: () => {
+      gsap.to(".thirteenth-section", {
+        alpha: 0,
+      });
+      gsap.to(".chapter-four", {
+        alpha: 1,
+      });
+      changeBackgroundColor();
+    },
+  },
+});
+
+// Thirteenth section
+gsap.to(".thirteenth-section", {
+  scrollTrigger: {
+    trigger: ".thirteenth-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: 1,
+    onLeave: () => {
+      gsap.to(".fourteenth-section", {
+        alpha: 1,
+      });
+      gsap.to(".thirteenth-section", {
+        alpha: 0,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(".fourteenth-section", {
+        alpha: 0,
+      });
+      gsap.to(".thirteenth-section", {
+        alpha: 1,
+      });
+    },
+  },
+});
+
+// Fourteenth section
+gsap.to(".fourteenth-section", {
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "top",
+    end: "bottom",
+    pin: true,
+    scrub: 1,
+    onLeave: () => {
+      gsap.to(".fifteenth-section", {
+        alpha: 1,
+      });
+      gsap.to(".fourteenth-section", {
+        alpha: 0,
+      });
+      changeBackgroundColor();
+    },
+    onEnterBack: () => {
+      gsap.to(".fifteenth-section", {
+        alpha: 0,
+      });
+      gsap.to(".fourteenth-section", {
+        alpha: 1,
+      });
+      changeBackgroundColor();
+    },
+  },
+});
+
+// Fifteenth section
+gsap.to(".fifteenth-section", {
+  scrollTrigger: {
+    trigger: ".fifteenth-section",
     start: "top",
     end: "bottom",
     pin: true,
