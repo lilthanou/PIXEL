@@ -711,6 +711,12 @@ gsap.to(".seventh-section > .section-text", {
       gsap.to(".seventh-section-wave", {
         alpha: 1,
       });
+      gsap.to(".seventh-section > .section-subtitle", {
+        text: {
+          delimiter: "",
+          value: "Waves become images",
+        },
+      })
     },
     onLeaveBack: () => {
       gsap.to("#sineCanvas", {
