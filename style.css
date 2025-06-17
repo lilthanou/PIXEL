@@ -22,7 +22,7 @@
   --text-color: #f4f1f1;
 }
 
-b{
+b {
   font-weight: 500;
 }
 
@@ -69,6 +69,10 @@ nav {
   align-self: stretch;
   display: flex;
   padding: 85dvw 0 5dvw 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .menu-element {
@@ -244,11 +248,11 @@ h1 {
   top: 0;
   left: 0;
   width: 100dvw;
-  height: 100svh;
+  height: 100dvh;
   background-image: linear-gradient(180deg, #ff532400 60%, #ff5324 80%);
 }
 
-.chapter-one{
+.chapter-one {
   height: 400svh;
   transform-origin: 50% 15%;
 }
@@ -305,6 +309,10 @@ section > p {
   transform-origin: 29% 51%;
 }
 
+.second-section {
+  height: 400dvh;
+}
+
 .third-section {
   background-color: var(--text-color);
   height: 500dvh;
@@ -313,17 +321,20 @@ section > p {
 .third-section-pixel {
   width: 40svw;
   height: 40svw;
-  background-color: #ff5424;
-  filter: hue-rotate(0deg);
   border: #f4f1f1 solid 1px;
   position: absolute;
-  background-image: radial-gradient(circle, #ff532400 99%, #f4f1f1 100%);
+  background-color: #ff5324;
   top: 40svh;
   left: 30svw;
+  transform-origin: 50% 50%;
 }
 
-.third-section-text-delete{
+.third-section-text-delete {
   margin-top: 80svw;
+}
+
+.fourth-section {
+  height: 400svh;
 }
 
 .fourth-section-date {
@@ -338,7 +349,7 @@ section > p {
 }
 
 .chapter-two {
-  height: 100dvh;
+  height: 400dvh;
   background-color: var(--text-color);
 }
 
@@ -354,7 +365,7 @@ section > p {
 
 .sixth-section {
   background-color: var(--text-color);
-  height: 400dvh;
+  height: 800dvh;
 }
 
 .sixth-section-line {
@@ -427,7 +438,7 @@ section > p {
 }
 
 .seventh-section {
-  height: 400dvh;
+  height: 800dvh;
 }
 
 #sineCanvas {
@@ -438,27 +449,38 @@ section > p {
   height: 50dvh;
 }
 
+.seventh-section-wave {
+  position: fixed;
+  top: 50dvh;
+  left: 0;
+  width: 100dvw;
+  height: 50dvh;
+  opacity: 0;
+  transform-origin: 53% 20%;
+}
+
 .chapter-three {
-  height: 100dvh;
+  height: 300dvh;
   background-color: var(--text-color);
 }
 
 .chapter-three-presentation {
   background-color: var(--text-color);
+  height: 400dvh;
 }
 
 .chapter-three-presentation > img {
   position: fixed;
-  bottom: 0;
+  top: 85dvw;
   left: 0;
   width: 100dvw;
   height: auto;
   object-fit: cover;
-  z-index: -1;
+  z-index: 10;
 }
 
 .eighth-section {
-  height: 400dvh;
+  height: 800dvh;
   overflow-x: hidden;
   background-color: var(--text-color);
 }
@@ -522,6 +544,14 @@ section > p {
   top: 8svw;
 }
 
+.ninth-section-circle {
+  height: 20dvw;
+  width: 20dvw;
+  background-color: var(--text-color);
+  border-radius: 100%;
+  margin: 15dvw auto;
+}
+
 .tenth-section {
   height: 400dvh;
   background-color: var(--text-color);
@@ -530,7 +560,8 @@ section > p {
 .tenth-section-container {
   width: 70dvw;
   height: 70dvw;
-  margin: 8dvw auto 0 auto;
+  position: fixed;
+  top: 90dvw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -556,21 +587,22 @@ section > p {
 
 .eleventh-section {
   background-color: var(--text-color);
+  height: 200dvh;
 }
 
 .eleventh-section-point {
-  background-color: var(--background-color);
+  background-image: radial-gradient(circle, #ff5324 10%, #f4f1f100 70%);
   width: 30dvw;
   height: 30dvw;
   border-radius: 100%;
   margin: 10dvh auto;
-  filter: blur(20px);
 }
 
 .twelth-section {
   background-color: var(--text-color);
   opacity: 0;
   overflow: hidden;
+  height: 200dvh;
 }
 
 .twelth-section-img {
@@ -578,7 +610,6 @@ section > p {
   height: 90dvw;
   object-fit: contain;
   margin: 5dvh auto 0 auto;
-  background-color: #ff532424;
 }
 
 .chapter-four {
@@ -588,6 +619,56 @@ section > p {
 
 .thirteenth-section {
   background-color: var(--background-color);
+  height: 400dvh;
+}
+
+.thirteenth-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60dvw;
+  width: 70dvw;
+  background-image: url("lib/ordinateur.svg");
+  background-size:auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 120svw;
+  left: 15svw;
+}
+
+.thirteenth-section-svg {
+  height: auto;
+  position: relative;
+  top: -13%;
+  left: -4%;
+  opacity: 0;
+}
+
+.fourteenth-section {
+  height: 400dvh;
+}
+
+.fourteenth-section-container {
+  display: flex;
+  flex-direction: column;
+  height: 70dvw;
+  width: fit-content;
+  justify-content: space-between;
+  position: fixed;
+  top: 50svh;
+  left: 0;
+}
+
+.fourteenth-section-line{
+  background-color: var(--text-color);
+  height: 7dvw;
+  width: 0;
+  color: var(--background-color);
+  text-align: right;
+  font-size: 5svw;
+  font-weight: 500;
 }
 
 .fifteenth-section {

@@ -8,7 +8,7 @@ gsap.registerPlugin(
 
 let menuOpen = false;
 let backgroundIsOrange = true;
-let buttonMenuColor = "var(--text-color)";
+let buttonMenuColor = "var(--background-color)";
 let sectionTexts = document.querySelectorAll(".section-text");
 let sectionHeaders = document.querySelectorAll(".section-header");
 let sectionLines = document.querySelectorAll(".section-line");
@@ -45,6 +45,9 @@ function openMenu() {
       y: "10%",
       duration: 0,
     });
+    if (backgroundIsOrange) {
+      buttonMenuColor = "var(--text-color)";
+    }
   }
   menuOpen = !menuOpen;
 }
@@ -242,7 +245,7 @@ gsap.to(".space-invader", {
   filter: "blur(1px)",
   scrollTrigger: {
     trigger: ".second-section",
-    start: "20% top",
+    start: "30% top",
     end: "bottom",
     scrub: 1,
   },
@@ -252,8 +255,8 @@ gsap.to(".second-section-header", {
   alpha: 0,
   scrollTrigger: {
     trigger: ".second-section",
-    start: "bottom 60%",
-    end: "bottom",
+    start: "30% top",
+    end: "60% top",
     scrub: 1,
   },
 });
@@ -262,8 +265,8 @@ gsap.to(".second-section > p", {
   alpha: 0,
   scrollTrigger: {
     trigger: ".second-section",
-    start: "bottom 60%",
-    end: "bottom",
+    start: "30% top",
+    end: "60% top",
     scrub: 1,
   },
 });
@@ -283,7 +286,6 @@ gsap.to(".second-section", {
       gsap.to(".third-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".second-section", {
@@ -292,8 +294,6 @@ gsap.to(".second-section", {
       gsap.to(".third-section", {
         alpha: 0,
       });
-
-      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".third-section", {
@@ -315,23 +315,18 @@ gsap.to(".second-section", {
 // Third section
 
 gsap.to(".third-section-pixel", {
-  backgroundImage:
-    "radial-gradient(circle,rgba(255, 83, 36, 0) 0%, #f4f1f1 65%)",
-  alpha: 1,
+  filter: "blur(10px)",
   borderRadius: "50%",
-  scale: 1.7,
   scrollTrigger: {
     trigger: ".third-section",
     start: "10% top",
     end: "30% top",
     scrub: 1,
-    onLeave: () => {
-      document.querySelector(".third-section-pixel").style.backgroundImage =
-        "radial-gradient(circle,rgba(255, 83, 36, 0) 0%, #f4f1f1 65%)";
-    },
     onLeaveBack: () => {
-      document.querySelector(".third-section-pixel").style.backgroundImage =
-        "radial-gradient(circle,rgba(255, 83, 36, 0) 99%, #f4f1f1 100%)";
+      changeBackgroundColor();
+    },
+    onEnter: () => {
+      changeBackgroundColor();
     },
   },
 });
@@ -358,7 +353,12 @@ gsap.to(".third-section-text", {
     start: "top",
     end: "20% top",
     scrub: 1,
-  }
+    onEnterBack: () => {
+      gsap.to(".third-section-text-delete", {
+        alpha: 1,
+      });
+    },
+  },
 });
 
 gsap.to(".third-section-text", {
@@ -377,32 +377,17 @@ gsap.to(".third-section-text", {
         alpha: 0,
       });
     },
-    onEnterBack: () => {
-      gsap.to(".third-section-text-delete", {
-        alpha: 1,
-      });
-    },
   },
 });
 
 // Third section pixel color change to blue and text
 gsap.to(".third-section-pixel", {
-  filter: "hue-rotate(240deg)",
-  scrollTrigger: {
+  backgroundColor: "#0000FF",
+    scrollTrigger: {
     trigger: ".third-section",
-    start: "60% top",
+    start: "50% top",
     end: "70% top",
     scrub: 1,
-    onEnter: () => {
-      gsap.to(".third-section-text-delete", {
-        alpha: 0,
-      });
-    },
-    onEnterBack: () => {
-      gsap.to(".third-section-text-delete", {
-        alpha: 1,
-      });
-    },
   },
 });
 
@@ -422,10 +407,12 @@ gsap.to(".third-section-text", {
 });
 
 gsap.to(".third-section-pixel", {
-  backgroundColor: "#f4f1f1",
+  scale: 10,
+  filter:"hue-rotate(170deg)",
+  alpha: 0.5,
   scrollTrigger: {
     trigger: ".third-section",
-    start: "80% top",
+    start: "90% top",
     end: "bottom",
     scrub: 1,
   },
@@ -445,7 +432,6 @@ gsap.to(".third-section", {
       gsap.to(".fourth-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".third-section", {
@@ -454,7 +440,6 @@ gsap.to(".third-section", {
       gsap.to(".fourth-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".fourth-section", {
@@ -479,7 +464,7 @@ gsap.to(".fourth-section-date", {
   scale: 20,
   scrollTrigger: {
     trigger: ".fourth-section",
-    start: "bottom 80%",
+    start: "50% top",
     end: "bottom",
     scrub: 1,
   },
@@ -508,10 +493,26 @@ gsap.to(".fourth-section", {
         alpha: 0,
       });
     },
+    onEnter: () => {
+      changeBackgroundColor();
+    },
+    onLeaveBack: () => {
+      changeBackgroundColor();
+    },
   },
 });
 
 // Chapter two
+
+gsap.to(".chapter-two > img", {
+  scale: 1.4,
+  scrollTrigger: {
+    trigger: ".chapter-two",
+    start: "top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
 
 gsap.to(".chapter-two", {
   scrollTrigger: {
@@ -527,7 +528,6 @@ gsap.to(".chapter-two", {
       gsap.to(".sixth-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".chapter-two", {
@@ -536,13 +536,13 @@ gsap.to(".chapter-two", {
       gsap.to(".sixth-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".sixth-section", {
         alpha: 0,
         duration: 0,
       });
+      changeBackgroundColor();
     },
     onLeaveBack: () => {
       gsap.to(".sixth-section", {
@@ -551,6 +551,7 @@ gsap.to(".chapter-two", {
       gsap.to(".chapter-two", {
         alpha: 0,
       });
+      changeBackgroundColor();
     },
   },
 });
@@ -561,8 +562,8 @@ gsap.to(".sixth-section-container", {
   x: "-340svw",
   scrollTrigger: {
     trigger: ".sixth-section",
-    start: "10% top",
-    end: "60% top",
+    start: "20% top",
+    end: "70% top",
     scrub: 1,
     snap: {
       snapTo: [0, 0.135, 0.31, 0.55, 1],
@@ -577,8 +578,8 @@ gsap.to(".transition-circle", {
   x: "1svw",
   scrollTrigger: {
     trigger: ".sixth-section",
-    start: "60% top",
-    end: "80% top",
+    start: "70% top",
+    end: "90% top",
     scrub: 1,
     onEnter: () => {
       gsap.to(sectionSixthTexts, {
@@ -629,7 +630,6 @@ gsap.to(".sixth-section", {
       gsap.to(".seventh-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".sixth-section", {
@@ -638,7 +638,6 @@ gsap.to(".sixth-section", {
       gsap.to(".seventh-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnter: () => {
       gsap.to(".seventh-section", {
@@ -655,12 +654,26 @@ gsap.to(".seventh-section > .section-text", {
   text: {
     delimiter: "",
     value:
+      "He realized that any signal, even a sound, is just a combination of simple waves.",
+  },
+  scrollTrigger: {
+    trigger: ".seventh-section",
+    start: "5% top",
+    end: "10% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".seventh-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
       "We all know music is made of waves. Each sound , every note, every chords, is a blend of waves: <br><br>some faster (higher pitch), some taller (louder).",
   },
   scrollTrigger: {
     trigger: ".seventh-section",
-    start: "10% top",
-    end: "20% top",
+    start: "25% top",
+    end: "30% top",
     scrub: 1,
   },
 });
@@ -673,8 +686,8 @@ gsap.to(".seventh-section > .section-text", {
   },
   scrollTrigger: {
     trigger: ".seventh-section",
-    start: "30% top",
-    end: "40% top",
+    start: "45% top",
+    end: "50% top",
     scrub: 1,
   },
 });
@@ -687,9 +700,25 @@ gsap.to(".seventh-section > .section-text", {
   },
   scrollTrigger: {
     trigger: ".seventh-section",
-    start: "50% top",
-    end: "60% top",
+    start: "65% top",
+    end: "70% top",
     scrub: 1,
+    onEnter: () => {
+      gsap.to("#sineCanvas", {
+        alpha: 0,
+      });
+      gsap.to(".seventh-section-wave", {
+        alpha: 1,
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to("#sineCanvas", {
+        alpha: 1,
+      });
+      gsap.to(".seventh-section-wave", {
+        alpha: 0,
+      });
+    },
   },
 });
 
@@ -701,8 +730,19 @@ gsap.to(".seventh-section > .section-text", {
   },
   scrollTrigger: {
     trigger: ".seventh-section",
-    start: "70% top",
-    end: "80% top",
+    start: "85% top",
+    end: "90% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".seventh-section-wave", {
+  scale: 10,
+  filter: "blur(2px)",
+  scrollTrigger: {
+    trigger: ".seventh-section",
+    start: "90% top",
+    end: "bottom",
     scrub: 1,
   },
 });
@@ -737,6 +777,12 @@ gsap.to(".seventh-section", {
       gsap.to(".chapter-three", {
         alpha: 0,
       });
+      changeBackgroundColor();
+    },
+    onEnter: () => {
+      changeBackgroundColor();
+    },
+    onLeaveBack: () => {
       changeBackgroundColor();
     },
   },
@@ -823,10 +869,20 @@ draw();
 
 gsap.to(".chapter-three > img", {
   scale: 0.55,
-  x: "-10svw",
+  x: "-11svw",
   scrollTrigger: {
     trigger: ".chapter-three",
-    start: "top",
+    start: "20% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
+gsap.to(".chapter-three", {
+  filter: "blur(10px)",
+  scrollTrigger: {
+    trigger: ".chapter-three",
+    start: "80% top",
     end: "bottom",
     scrub: 1,
   },
@@ -861,10 +917,21 @@ gsap.to(".chapter-three", {
 
 //Chapter three bis
 
+gsap.from(".chapter-three-presentation", {
+  filter: "blur(10px)",
+  scrollTrigger: {
+    trigger: ".chapter-three-presentation",
+    start: "top",
+    end: "15% top",
+    scrub: 1,
+  },
+});
+
 gsap.to(".chapter-three-presentation > img", {
   scale: 10,
   xPercent: 10,
   yPercent: 300,
+  filter: "blur(5px)",
   scrollTrigger: {
     trigger: ".chapter-three-presentation",
     start: "80% top",
@@ -908,7 +975,34 @@ gsap.from(".wave", {
     start: "top",
     end: "20% top",
     scrub: 1,
-    onEnter: () => {
+  },
+});
+
+gsap.to(".eighth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "In 1933, Vladimir Kotelnikov published the Sampling Theorem:<br /><br />He proved you could take a smooth continous wave ...",
+  },
+  scrollTrigger: {
+    trigger: ".eighth-section",
+    start: "top",
+    end: "5% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".eighth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value: "And if you only keep a few key points ...",
+  },
+  scrollTrigger: {
+    trigger: ".eighth-section",
+    start: "20% top",
+    end: "25% top",
+    scrub: 1,
+    onLeaveBack: () => {
       document.querySelector(".eighth-section > p").innerHTML =
         "In 1933, Vladimir Kotelnikov published the Sampling Theorem:<br /><br />He proved you could take a smooth continous wave ...";
     },
@@ -923,8 +1017,6 @@ gsap.from(".wave", {
     end: "40% top",
     scrub: 1,
     onEnter: () => {
-      document.querySelector(".eighth-section > p").innerHTML =
-        "And if you only keep a few key points ...";
       for (let i = 0; i < wavePoints.length; i++) {
         gsap.to(wavePoints[i], {
           alpha: 1,
@@ -932,8 +1024,6 @@ gsap.from(".wave", {
       }
     },
     onLeaveBack: () => {
-      document.querySelector(".eighth-section > p").innerHTML =
-        "In 1933, Vladimir Kotelnikov published the Sampling Theorem:<br /><br />He proved you could take a smooth continous wave ...";
       gsap.to(wavePoints, {
         alpha: 0,
       });
@@ -941,16 +1031,16 @@ gsap.from(".wave", {
   },
 });
 
-gsap.from(".wave", {
+gsap.to(".eighth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value: "Just the dots, and nothing else.",
+  },
   scrollTrigger: {
     trigger: ".eighth-section",
-    start: "45% top",
-    end: "55% top",
+    start: "40% top",
+    end: "45% top",
     scrub: 1,
-    onEnter: () => {
-      document.querySelector(".eighth-section > p").innerHTML =
-        "Just the dots, and nothing else.";
-    },
     onLeaveBack: () => {
       document.querySelector(".eighth-section > p").innerHTML =
         "And if you only keep a few key points ...";
@@ -965,12 +1055,22 @@ gsap.from(".wave", {
     start: "60% top",
     end: "70% top",
     scrub: 1,
-    onEnter: () => {
-      document.querySelector(".eighth-section > p").innerHTML =
-        "You can rebuild the orinigal wave, and nothing was lost.<br> The original signal is fully rebuils, from just the samples.";
-    },
+  },
+});
+
+gsap.to(".eighth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "Still… nothing was lost. <br>The original signal is fully rebuilt, from just the samples.",
+  },
+  scrollTrigger: {
+    trigger: ".eighth-section",
+    start: "60% top",
+    end: "65% top",
+    scrub: 1,
     onLeaveBack: () => {
-      document.querySelector(".eighth-section > p").innerHTML =
+      document.querySelector(".eighth-section > .section-text").innerHTML =
         "Just the dots, and nothing else.";
     },
   },
@@ -1024,6 +1124,17 @@ gsap.to(".eighth-section", {
 
 // Ninth section
 
+gsap.to(".ninth-section-circle", {
+  scale: 10,
+  filter: "blur(5px)",
+  scrollTrigger: {
+    trigger: ".ninth-section",
+    start: "90% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
 gsap.to(".ninth-section", {
   scrollTrigger: {
     trigger: ".ninth-section",
@@ -1043,7 +1154,6 @@ gsap.to(".ninth-section", {
       gsap.to(".ninth-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".tenth-section", {
@@ -1052,12 +1162,25 @@ gsap.to(".ninth-section", {
       gsap.to(".ninth-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
   },
 });
 
 // Tenth section
+
+gsap.to(".tenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "This is what a digital image is made of.A grid of samples. Each one a tiny carrier of information.",
+  },
+  scrollTrigger: {
+    trigger: ".tenth-section",
+    start: "0% top",
+    end: "5% top",
+    scrub: 1,
+  },
+});
 
 gsap.to(".tenth-section", {
   scrollTrigger: {
@@ -1071,6 +1194,7 @@ gsap.to(".tenth-section", {
           scale: Math.random() * 1.3 + 0.5,
         });
       }
+      changeBackgroundColor();
     },
     onLeaveBack: () => {
       for (let i = 0; i < tenthSectionCircles.length; i++) {
@@ -1078,7 +1202,22 @@ gsap.to(".tenth-section", {
           scale: 1,
         });
       }
+      changeBackgroundColor();
     },
+  },
+});
+
+gsap.to(".tenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "Each dot holds a value, its brightness or strength. The size of each circle shows how strong that value is.",
+  },
+  scrollTrigger: {
+    trigger: ".tenth-section",
+    start: "20% top",
+    end: "40% top",
+    scrub: 1,
   },
 });
 
@@ -1093,9 +1232,23 @@ gsap.to(tenthSectionCircles, {
   },
 });
 
+gsap.to(".tenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value: "Together, all dots combine to form the full image.",
+  },
+  scrollTrigger: {
+    trigger: ".tenth-section",
+    start: "60% top",
+    end: "65% top",
+    scrub: 1,
+  },
+});
+
 gsap.to(".tenth-section-container", {
-  scale: 4,
-  y: "-20svh",
+  scale: 3,
+  filter: "blur(5px)",
+  alpha: 0.5,
   scrollTrigger: {
     trigger: ".tenth-section",
     start: "90% top",
@@ -1135,11 +1288,21 @@ gsap.to(".tenth-section", {
 //eleventh section
 
 gsap.to(".eleventh-section-point", {
-  scale: 0.3,
+  scale: 0.1,
   scrollTrigger: {
-    trigger: ".eleventh-section-point",
-    start: "20% top",
-    end: "60% top",
+    trigger: ".eleventh-section",
+    start: "80% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
+gsap.to(".eleventh-section", {
+  filter: "blur(5px)",
+  scrollTrigger: {
+    trigger: ".eleventh-section",
+    start: "90% top",
+    end: "bottom",
     scrub: 1,
   },
 });
@@ -1173,11 +1336,22 @@ gsap.to(".eleventh-section", {
 // Twelth section
 
 gsap.to(".twelth-section-img", {
-  scale: 2,
-  y: "40svw",
+  scale: 3,
+  y: "60svw",
+  x: "10svw",
   scrollTrigger: {
     trigger: ".twelth-section",
     start: "80% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
+gsap.to(".twelth-section", {
+  filter: "blur(5px)",
+  scrollTrigger: {
+    trigger: ".twelth-section",
+    start: "90% top",
     end: "bottom",
     scrub: 1,
   },
@@ -1211,6 +1385,18 @@ gsap.to(".twelth-section", {
 
 // Chapter four
 
+gsap.to(".chapter-four > img", {
+  scale: 3,
+  x: "-100svw",
+  y: "20svw",
+  scrollTrigger: {
+    trigger: ".chapter-four",
+    start: "80% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
 gsap.to(".chapter-four", {
   scrollTrigger: {
     trigger: ".chapter-four",
@@ -1225,7 +1411,6 @@ gsap.to(".chapter-four", {
       gsap.to(".chapter-four", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".thirteenth-section", {
@@ -1234,12 +1419,67 @@ gsap.to(".chapter-four", {
       gsap.to(".chapter-four", {
         alpha: 1,
       });
-      changeBackgroundColor();
     },
   },
 });
 
 // Thirteenth section
+
+gsap.to(".thirteenth-section-svg", {
+  alpha: 1,
+  scrollTrigger: {
+    trigger: ".thirteenth-section",
+    start: "10% top",
+    end: "20% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".thirteenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "In 1948, the Manchester Baby became the world’s first stored-program computer. It was the very first machine to display digital pixels, the building blocks of every image we see on screens today.",
+    preserveSpaces: true,
+  },
+  scrollTrigger: {
+    trigger: ".thirteenth-section",
+    start: "top",
+    end: "5% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".thirteenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "Baby didn’t just show still images. It could animate, even scrolling the word “PIXAR” on its screen in 2013’s replica. This was the start of digital animation and games, “displaying the first spread pixels.”",
+    preserveSpaces: true,
+  },
+  scrollTrigger: {
+    trigger: ".thirteenth-section",
+    start: "40% top",
+    end: "50% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".thirteenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "Millions of pixels make one picture. No human can add all those values instantaneously, computers do the calculations fast. This “spread and add” process is central to all digital images, from photos to CGI.",
+    preserveSpaces: true,
+  },
+  scrollTrigger: {
+    trigger: ".thirteenth-section",
+    start: "75% top",
+    end: "80% top",
+    scrub: 1,
+  },
+});
+
 gsap.to(".thirteenth-section", {
   scrollTrigger: {
     trigger: ".thirteenth-section",
@@ -1263,10 +1503,109 @@ gsap.to(".thirteenth-section", {
         alpha: 1,
       });
     },
+    onEnter: () => {
+      changeBackgroundColor();
+    },
+    onLeaveBack: () => {
+      changeBackgroundColor();
+    },
   },
 });
 
 // Fourteenth section
+
+gsap.to(".fourteenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "Since 1965, computer power has grown over 100 billion times, roughly doubling every 18 months. <br><br>This trend, known as <b>Moore’s Law</b>, enabled color pixels and 3D graphics, sparking a revolution in digital images.",
+    preserveSpaces: true,
+  },
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "top",
+    end: "5% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section-line:nth-child(1)", {
+  width: "20dvw",
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "10% top",
+    end: "20% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section-line:nth-child(2)", {
+  width: "40dvw",
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "20% top",
+    end: "30% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section-line:nth-child(3)", {
+  width: "80dvw",
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "30% top",
+    end: "40% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section-line:nth-child(4)", {
+  width: "160dvw",
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "40% top",
+    end: "60% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section-container", {
+  x: "-100svw",
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "50% top",
+    end: "80% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section > .section-text", {
+  text: {
+    delimiter: "",
+    value:
+      "This was the dawn of the “digital convergence,” when pixels took over photography, movies, games, and VR.",
+    preserveSpaces: true,
+  },
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "75% top",
+    end: "80% top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".fourteenth-section-line:nth-child(4)", {
+  scale: 30,
+  filter: "blur(2px)",
+  y: "-75svw",
+  scrollTrigger: {
+    trigger: ".fourteenth-section",
+    start: "80% top",
+    end: "bottom",
+    scrub: 1,
+  },
+});
+
 gsap.to(".fourteenth-section", {
   scrollTrigger: {
     trigger: ".fourteenth-section",
@@ -1281,7 +1620,6 @@ gsap.to(".fourteenth-section", {
       gsap.to(".fourteenth-section", {
         alpha: 0,
       });
-      changeBackgroundColor();
     },
     onEnterBack: () => {
       gsap.to(".fifteenth-section", {
@@ -1300,8 +1638,14 @@ gsap.to(".fifteenth-section", {
   scrollTrigger: {
     trigger: ".fifteenth-section",
     start: "top",
-    end: "bottom",
+    end: "-100% bottom",
     pin: true,
     scrub: 1,
+    onEnter: () => {
+      changeBackgroundColor();
+    },
+    onLeaveBack: () => {
+      changeBackgroundColor();
+    }
   },
 });
