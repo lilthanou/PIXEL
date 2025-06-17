@@ -36,12 +36,12 @@ function openMenu() {
     document.querySelector("nav").style.left = "0";
     document.querySelector(".button-menu").style.backgroundColor =
       "var(--background-color)";
-    document.querySelector(".button-menu").style.width = "63dvw";
-    document.querySelector(".button-menu img").style.width = "63dvw";
-    document.querySelector(".button-menu").style.height = "63dvw";
-    document.querySelector(".button-menu img").style.height = "63dvw";
+    document.querySelector(".button-menu").style.width = "50dvw";
+    document.querySelector(".button-menu img").style.width = "50dvw";
+    document.querySelector(".button-menu").style.height = "50dvw";
+    document.querySelector(".button-menu img").style.height = "50dvw";
     gsap.to(".button-menu", {
-      x: "20%",
+      x: "20dvw",
       y: "10%",
       duration: 0,
     });
@@ -87,6 +87,7 @@ function changeBackgroundColor() {
 
 gsap.to(".landing-pixel", {
   scale: 2,
+  x: "55%",
   color: "#ff5424",
   scrollTrigger: {
     trigger: ".landing",
@@ -103,7 +104,7 @@ gsap.to(".landing-pixel", {
       gsap.to(".pixel-text", {
         text: {
           delimiter: "",
-          value: "Everything you see.. starts here",
+          value: "Everything you see... starts here",
         },
       });
     },
@@ -383,7 +384,7 @@ gsap.to(".third-section-text", {
 // Third section pixel color change to blue and text
 gsap.to(".third-section-pixel", {
   backgroundColor: "#0000FF",
-    scrollTrigger: {
+  scrollTrigger: {
     trigger: ".third-section",
     start: "50% top",
     end: "70% top",
@@ -408,7 +409,7 @@ gsap.to(".third-section-text", {
 
 gsap.to(".third-section-pixel", {
   scale: 10,
-  filter:"hue-rotate(170deg)",
+  filter: "hue-rotate(150deg)",
   alpha: 0.5,
   scrollTrigger: {
     trigger: ".third-section",
@@ -668,7 +669,7 @@ gsap.to(".seventh-section > .section-text", {
   text: {
     delimiter: "",
     value:
-      "We all know music is made of waves. Each sound , every note, every chords, is a blend of waves: <br><br>some faster (higher pitch), some taller (louder).",
+      "We all know music is made of waves. Each sound , every note, every chords, is a blend of waves: <br><br>Some faster (higher pitch), some taller (louder).",
   },
   scrollTrigger: {
     trigger: ".seventh-section",
@@ -726,12 +727,12 @@ gsap.to(".seventh-section > .section-text", {
   text: {
     delimiter: "",
     value:
-      "These waves could build any image.But they were still analog, still infinite. <br><br>Someone had to bring them into the digital world.",
+      "These waves could build any image. But they were still analog, still infinite. <br><br>Someone had to bring them into the digital world.",
   },
   scrollTrigger: {
     trigger: ".seventh-section",
-    start: "85% top",
-    end: "90% top",
+    start: "80% top",
+    end: "85% top",
     scrub: 1,
   },
 });
@@ -741,7 +742,7 @@ gsap.to(".seventh-section-wave", {
   filter: "blur(2px)",
   scrollTrigger: {
     trigger: ".seventh-section",
-    start: "90% top",
+    start: "95% top",
     end: "bottom",
     scrub: 1,
   },
@@ -868,8 +869,8 @@ draw();
 // Chapter three
 
 gsap.to(".chapter-three > img", {
-  scale: 0.55,
-  x: "-11svw",
+  scale: 0.7,
+  y: 100,
   scrollTrigger: {
     trigger: ".chapter-three",
     start: "20% top",
@@ -1077,10 +1078,8 @@ gsap.to(".eighth-section > .section-text", {
 });
 
 gsap.to(".wave-point-transition", {
-  width: "100dvh",
-  height: "100dvh",
-  x: "-110dvw",
-  y: "-120dvw",
+  scale: 50,
+  filter: "blur(1px)",
   scrollTrigger: {
     trigger: ".eighth-section",
     start: "80% top",
@@ -1194,7 +1193,6 @@ gsap.to(".tenth-section", {
           scale: Math.random() * 1.3 + 0.5,
         });
       }
-      changeBackgroundColor();
     },
     onLeaveBack: () => {
       for (let i = 0; i < tenthSectionCircles.length; i++) {
@@ -1202,7 +1200,6 @@ gsap.to(".tenth-section", {
           scale: 1,
         });
       }
-      changeBackgroundColor();
     },
   },
 });
@@ -1246,8 +1243,8 @@ gsap.to(".tenth-section > .section-text", {
 });
 
 gsap.to(".tenth-section-container", {
-  scale: 3,
-  filter: "blur(5px)",
+  scale: 2,
+  filter: "blur(2px)",
   alpha: 0.5,
   scrollTrigger: {
     trigger: ".tenth-section",
@@ -1281,6 +1278,12 @@ gsap.to(".tenth-section", {
         alpha: 1,
         duration: 0.1,
       });
+    },
+    onEnter: () => {
+      changeBackgroundColor();
+    },
+    onLeaveBack: () => {
+      changeBackgroundColor();
     },
   },
 });
@@ -1588,9 +1591,13 @@ gsap.to(".fourteenth-section > .section-text", {
   },
   scrollTrigger: {
     trigger: ".fourteenth-section",
-    start: "75% top",
-    end: "80% top",
+    start: "60% top",
+    end: "65% top",
     scrub: 1,
+    onLeaveBack: () => {
+      document.querySelector(".fourteenth-section > .section-text").innerHTML =
+        "Since 1965, computer power has grown over 100 billion times, roughly doubling every 18 months. <br><br>This trend, known as <b>Moore’s Law</b>, enabled color pixels and 3D graphics, sparking a revolution in digital images.";
+    },
   },
 });
 
@@ -1628,7 +1635,9 @@ gsap.to(".fourteenth-section", {
       gsap.to(".fourteenth-section", {
         alpha: 1,
       });
-      changeBackgroundColor();
+      (document.querySelector(".fourteenth-section > .section-text").innerHTML =
+        "This was the dawn of the “digital convergence,” when pixels took over photography, movies, games, and VR."),
+        changeBackgroundColor();
     },
   },
 });
@@ -1638,14 +1647,11 @@ gsap.to(".fifteenth-section", {
   scrollTrigger: {
     trigger: ".fifteenth-section",
     start: "top",
-    end: "-100% bottom",
+    end: "bottom",
     pin: true,
     scrub: 1,
     onEnter: () => {
       changeBackgroundColor();
     },
-    onLeaveBack: () => {
-      changeBackgroundColor();
-    }
   },
 });

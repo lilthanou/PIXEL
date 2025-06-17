@@ -61,14 +61,14 @@ nav {
   top: 0;
   left: -200dvw;
   width: 100dvw;
-  height: 60svh;
+  height: 100svh;
   background-color: var(--text-color);
   z-index: 9;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
   display: flex;
-  padding: 85dvw 0 5dvw 0;
+  padding: 70dvw 0 5dvw 0;
 }
 
 a {
@@ -120,7 +120,7 @@ section {
 
 h1 {
   font-size: 13dvw;
-  margin: 10svh 0 0 5dvw;
+  margin: 7svw 0 0 5dvw;
   font-weight: 400;
 }
 
@@ -188,7 +188,7 @@ h1 {
   position: fixed;
   top: 74svh;
   left: 16svh;
-  font-size: 15px;
+  font-size: 2svh;
   width: 58svw;
   height: 29svw;
 }
@@ -203,7 +203,6 @@ h1 {
   justify-content: center;
   align-items: center;
   background-color: var(--text-color);
-  transform-origin: 33% 90%;
 }
 
 .transition-pixel {
@@ -238,7 +237,7 @@ h1 {
   position: fixed;
   height: 130svh;
   width: auto;
-  left: -35svw;
+  left: -25svw;
   z-index: -1;
 }
 
@@ -305,7 +304,7 @@ section > p {
 .space-invader {
   width: 80svw;
   height: 80svw;
-  margin: 10svh auto 0 auto;
+  margin: 0svh auto 0 auto;
   transform-origin: 29% 51%;
 }
 
@@ -330,7 +329,7 @@ section > p {
 }
 
 .third-section-text-delete {
-  margin-top: 80svw;
+  margin-top: 60svw;
 }
 
 .fourth-section {
@@ -342,9 +341,6 @@ section > p {
   font-weight: 900;
   width: fit-content;
   height: 20dvh;
-  position: fixed;
-  top: 65svh;
-  left: auto;
   transform-origin: 81% 60%;
 }
 
@@ -479,6 +475,11 @@ section > p {
   z-index: 10;
 }
 
+.text-right-align{
+  text-align: right;
+  margin-top: 1dvw;
+}
+
 .eighth-section {
   height: 800dvh;
   overflow-x: hidden;
@@ -550,6 +551,10 @@ section > p {
   background-color: var(--text-color);
   border-radius: 100%;
   margin: 15dvw auto;
+}
+
+.ninth-section-text{
+  font-size: 7dvw;
 }
 
 .tenth-section {
@@ -657,7 +662,7 @@ section > p {
   width: fit-content;
   justify-content: space-between;
   position: fixed;
-  top: 50svh;
+  top: 60svh;
   left: 0;
 }
 
@@ -673,6 +678,7 @@ section > p {
 
 .fifteenth-section {
   background-color: var(--text-color);
+  height: 1000dvh;
 }
 
 .fifteenth-section-date {
